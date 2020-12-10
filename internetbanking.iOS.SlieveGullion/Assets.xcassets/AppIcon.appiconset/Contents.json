@@ -1,0 +1,135 @@
+{
+  "images": [
+    {
+      "scale": "2x",
+      "size": "20x20",
+      "idiom": "iphone",
+      "filename": "Vale of Leven Credit Union (17012020) 40x401.png"
+    },
+    {
+      "scale": "3x",
+      "size": "20x20",
+      "idiom": "iphone",
+      "filename": "Vale of Leven Credit Union (17012020) 60x60.png"
+    },
+    {
+      "scale": "2x",
+      "size": "29x29",
+      "idiom": "iphone",
+      "filename": "Vale of Leven Credit Union (17012020) 58x58.png"
+    },
+    {
+      "scale": "3x",
+      "size": "29x29",
+      "idiom": "iphone",
+      "filename": "Vale of Leven Credit Union (17012020) 87x87.png"
+    },
+    {
+      "scale": "2x",
+      "size": "40x40",
+      "idiom": "iphone",
+      "filename": "Vale of Leven Credit Union (17012020) 80x80.png"
+    },
+    {
+      "scale": "3x",
+      "size": "40x40",
+      "idiom": "iphone",
+      "filename": "Vale of Leven Credit Union (17012020) 120x120.png"
+    },
+    {
+      "scale": "2x",
+      "size": "60x60",
+      "idiom": "iphone",
+      "filename": "Vale of Leven Credit Union (17012020) 120x1201.png"
+    },
+    {
+      "scale": "3x",
+      "size": "60x60",
+      "idiom": "iphone",
+      "filename": "Vale of Leven Credit Union (17012020) 180x180.png"
+    },
+    {
+      "scale": "1x",
+      "size": "20x20",
+      "idiom": "ipad",
+      "filename": "Vale of Leven Credit Union (17012020) 20x20.png"
+    },
+    {
+      "scale": "2x",
+      "size": "20x20",
+      "idiom": "ipad",
+      "filename": "Vale of Leven Credit Union (17012020) 40x402.png"
+    },
+    {
+      "scale": "1x",
+      "size": "29x29",
+      "idiom": "ipad",
+      "filename": "Vale of Leven Credit Union (17012020) 29x29.png"
+    },
+    {
+      "scale": "2x",
+      "size": "29x29",
+      "idiom": "ipad",
+      "filename": "Vale of Leven Credit Union (17012020) 58x581.png"
+    },
+    {
+      "scale": "1x",
+      "size": "40x40",
+      "idiom": "ipad",
+      "filename": "Vale of Leven Credit Union (17012020) 40x403.png"
+    },
+    {
+      "scale": "2x",
+      "size": "40x40",
+      "idiom": "ipad",
+      "filename": "Vale of Leven Credit Union (17012020) 80x801.png"
+    },
+    {
+      "scale": "2x",
+      "size": "83.5x83.5",
+      "idiom": "ipad",
+      "filename": "Vale of Leven Credit Union (17012020) 167x167.png"
+    },
+    {
+      "scale": "1x",
+      "size": "76x76",
+      "idiom": "ipad",
+      "filename": "Vale of Leven Credit Union (17012020) 76x76.png"
+    },
+    {
+      "scale": "2x",
+      "size": "76x76",
+      "idiom": "ipad",
+      "filename": "Vale of Leven Credit Union (17012020) 152x152.png"
+    },
+    {
+      "scale": "1x",
+      "size": "1024x1024",
+      "idiom": "ios-marketing",
+      "filename": "Vale of Leven Credit Union (17012020) 1024x1024.png"
+    },
+    {
+      "scale": "2x",
+      "size": "60x60",
+      "idiom": "car",
+      "filename": "Vale of Leven Credit Union (17012020) 120x1202.png"
+    },
+    {
+      "scale": "3x",
+      "size": "60x60",
+      "idiom": "car",
+      "filename": "Vale of Leven Credit Union (17012020) 180x1801.png"
+    },
+    {
+      "scale": "1x",
+      "size": "1024x1024",
+      "idiom": "watch-marketing",
+      "filename": "Vale of Leven Credit Union (17012020) 1024x10241.png"
+    }
+  ],
+  "properties": {},
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  }
+}
