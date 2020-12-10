@@ -1,0 +1,226 @@
+﻿<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InternetBanking.Views.AddBankAccountView"
+    xmlns:converters="clr-namespace:InternetBanking.Converters"
+    xmlns:behaviors="clr-namespace:InternetBanking.Behaviors"
+    xmlns:controls="clr-namespace:InternetBanking.Controls"
+    Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:FirstValidationErrorConverter
+                x:Key="FirstValidationErrorConverter" />
+            <converters:NullableBalanceConverter
+                x:Key="NullableBalanceConverter" />
+            <converters:CurrencyConverter
+                x:Key="CurrencyConverter" />
+            <converters:FontFamilyConverter
+                x:Key="FontFamilyConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView
+            BackgroundColor="{StaticResource WhiteColor}">
+            <StackLayout>
+                <controls:CustomHeader
+                    Message="Linking a bank account allows you to send money to it from your accounts." />
+                <Grid
+                    Padding="0,-5,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="10" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="*" />
+                        <ColumnDefinition
+                            Width="10" />
+                    </Grid.ColumnDefinitions>
+                    <!--Start Row 0-->
+                    <Label
+                        Text="Account Details"
+                        Style="{StaticResource GridRowHeaderStyle}"
+                        Grid.Row="0"/>
+                    <!--End Row 0-->
+                    <!--Start Row 1-->
+                    <Label
+                        Text="Account Name"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        Grid.Row="1" />
+                    <Entry
+                        Style="{StaticResource GridRowEntryStyle}"
+                        Text="{Binding AccountName.Value, Mode=TwoWay}"
+                        MaxLength="20"
+                        Grid.Row="1">
+                        <Entry.Behaviors>
+                            <behaviors:EventToCommandBehavior
+                                EventName="TextChanged"
+                                Command="{Binding ValidateAccountNameCommand}" />
+                        </Entry.Behaviors>
+                        <Entry.Triggers>
+                            <DataTrigger
+                                TargetType="Entry"
+                                Binding="{Binding AccountName.IsValid}"
+                                Value="False">
+                                <Setter
+                                    Property="behaviors:LineColorBehavior.LineColor"
+                                    Value="{StaticResource ErrorColor}" />
+                            </DataTrigger>
+                        </Entry.Triggers>
+                    </Entry>
+                    <!--End Row 1-->
+                    <!--Start Row 2-->
+                    <Label
+                        Text="Number"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        Grid.Row="2" />
+                    <Entry
+                        Style="{StaticResource GridRowEntryStyle}"
+                        Text="{Binding AccountNumber.Value, Mode=TwoWay}"
+                        MaxLength="8"
+                        Keyboard="Numeric"
+                        Grid.Row="2">
+                        <Entry.Behaviors>
+                            <behaviors:EventToCommandBehavior
+                                EventName="TextChanged"
+                                Command="{Binding ValidateAccountNumberCommand}" />
+                        </Entry.Behaviors>
+                        <Entry.Triggers>
+                            <DataTrigger
+                                TargetType="Entry"
+                                Binding="{Binding AccountNumber.IsValid}"
+                                Value="False">
+                                <Setter
+                                    Property="behaviors:LineColorBehavior.LineColor"
+                                    Value="{StaticResource ErrorColor}" />
+                            </DataTrigger>
+                        </Entry.Triggers>
+                    </Entry>
+                    <!--End Row 2-->
+                    <!--Start Row 3-->
+                    <Label
+                        Text="Sort"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        Grid.Row="3" />
+                    <Entry
+                        Style="{StaticResource GridRowEntryStyle}"
+                        MaxLength="8"
+                        Grid.Row="3"
+                        Keyboard="Numeric"
+                        Text="{Binding SortCode.Value, Mode=TwoWay}">
+                        <Entry.Behaviors>
+                            <behaviors:EventToCommandBehavior
+                                EventName="TextChanged"
+                                Command="{Binding ValidateSortCodeCommand}" />
+                            <behaviors:MaskedBehavior
+                                Mask="XX-XX-XX" />
+                        </Entry.Behaviors>
+                        <Entry.Triggers>
+                            <DataTrigger
+                                TargetType="Entry"
+                                Binding="{Binding SortCode.IsValid}"
+                                Value="False">
+                                <Setter
+                                    Property="behaviors:LineColorBehavior.LineColor"
+                                    Value="{StaticResource ErrorColor}" />
+                            </DataTrigger>
+                        </Entry.Triggers>
+                    </Entry>
+                    <!--End Row 3-->
+                    <!--Start Row 4-->
+                    <Label
+                        Text="Verification"
+                        Style="{StaticResource GridRowHeaderStyle}"
+                        Grid.Row="4"/>
+                    <!--End Row 4-->
+                    <!--Start Row 5 -->
+                    <Button
+                        Text="&#xf0e0;"
+                        Padding="10"
+                        CornerRadius="20"
+                        TextColor="{Binding PrimaryColor}"
+                        Command="{Binding SendVerificationCodeCommand}"
+                        Style="{StaticResource GridRowIconStyle}"
+                        IsEnabled="{Binding SmsSent, Converter={StaticResource InverseBoolConverter}}"
+                        BackgroundColor="{Binding SecondaryColor}"
+                        Grid.Column="2"
+                        Grid.Row="5" />
+                    <Label
+                        Text="Send Code"
+                        Grid.Column="1"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        HorizontalTextAlignment="Start"
+                        Grid.Row="5" />
+                    <!--End Row 5-->
+                    <!--Start Row 6-->
+                    <Label
+                        Text="Code"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        Grid.Row="6" />
+                    <Entry
+                        Style="{StaticResource GridRowEntryStyle}"
+                        Keyboard="Numeric"
+                        Text="{Binding VerificationCode.Value, Mode=TwoWay}"
+                        MaxLength="6"
+                        IsEnabled="{Binding SmsSent}"
+                        Grid.Row="6">
+                        <Entry.Behaviors>
+                            <behaviors:EventToCommandBehavior
+                                EventName="TextChanged"
+                                Command="{Binding ValidateVerificationCodeCommand}" />
+                        </Entry.Behaviors>
+                        <Entry.Triggers>
+                            <DataTrigger
+                                TargetType="Entry"
+                                Binding="{Binding ValidateVerificationCode.IsValid}"
+                                Value="False">
+                                <Setter
+                                    Property="behaviors:LineColorBehavior.LineColor"
+                                    Value="{StaticResource ErrorColor}" />
+                            </DataTrigger>
+                            <DataTrigger
+                                TargetType="Entry"
+                                Binding="{Binding SmsSent}"
+                                Value="False">
+                                <Setter
+                                    Property="BackgroundColor"
+                                    Value="{StaticResource OffWhiteColor}" />
+                            </DataTrigger>
+                        </Entry.Triggers>
+                    </Entry>
+                    <!--Start Row 6-->
+                </Grid>
+
+                <Label
+                    IsVisible="{Binding AccountName.Errors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                    Style="{StaticResource ValidationErrorLabelStyle}"
+                    Text="{Binding AccountName.Errors, Converter={StaticResource FirstValidationErrorConverter}}" />
+
+                <Label
+                    IsVisible="{Binding AccountNumber.Errors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                    Style="{StaticResource ValidationErrorLabelStyle}"
+                    Text="{Binding AccountNumber.Errors, Converter={StaticResource FirstValidationErrorConverter}}" />
+
+                <Label
+                    IsVisible="{Binding SortCode.Errors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                    Style="{StaticResource ValidationErrorLabelStyle}"
+                    Text="{Binding SortCode.Errors, Converter={StaticResource FirstValidationErrorConverter}}" />
+
+                <Label
+                    IsVisible="{Binding VerificationCode.Errors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                    Style="{StaticResource ValidationErrorLabelStyle}"
+                    Text="{Binding VerificationCode.Errors, Converter={StaticResource FirstValidationErrorConverter}}" />
+
+                <Button
+                    Command="{Binding SaveCommand}"
+                    Style="{StaticResource BottomButtonStyle}"
+                    Text="Confirm" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,105 @@
+﻿<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InternetBanking.Views.HelpView"
+    xmlns:behaviors="clr-namespace:InternetBanking.Behaviors"
+    Title="{Binding Title}">
+
+    <ContentPage.Content>
+
+        <ListView
+            x:Name="listView"
+            BackgroundColor="{StaticResource OffWhiteColor}"
+            ItemsSource="{Binding Sections}"
+            SelectedItem="{Binding SelectedSectionItem, Mode=TwoWay}"
+            IsGroupingEnabled="true"
+            IsPullToRefreshEnabled="false"
+            CachingStrategy="RecycleElement"
+            HasUnevenRows="true">
+
+            <ListView.Behaviors>
+                <behaviors:EventToCommandBehavior
+                    EventName="ItemTapped"
+                    Command="{Binding TableRowSelectedCommand}"
+                    EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}">
+                </behaviors:EventToCommandBehavior>
+            </ListView.Behaviors>
+
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell
+                        Height="50">
+                        <ContentView
+                            BackgroundColor="{StaticResource OffWhiteColor}"
+                            Padding="20,0,0,10">
+                            <Label
+                                Style="{StaticResource TableTitleStyle}"
+                                VerticalTextAlignment="End"
+                                Text="{Binding Heading}" />
+                        </ContentView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid
+                            BackgroundColor="{StaticResource WhiteColor}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition
+                                    Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition
+                                    Width="60" />
+                                <ColumnDefinition
+                                    Width="*" />
+                                <ColumnDefinition
+                                    Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <ContentView
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HorizontalOptions="Center"
+                                Margin="0,20,0,20">
+                                <Label
+                                    FontSize="{StaticResource LargerSize}"
+                                    Text="{Binding Icon}"
+                                    TextColor="{StaticResource LightGrayColor}">
+                                    <Label.FontFamily>
+                                        <OnPlatform
+                                            x:TypeArguments="x:String"
+                                            iOS="Font Awesome 5 Free"
+                                            Android="fa-solid-900.ttf#Font Awesome 5 Free" />
+                                    </Label.FontFamily>
+                                </Label>
+                            </ContentView>
+                            <ContentView
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Margin="0,20,20,20">
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Style="{StaticResource TableRowTitleStyle}"
+                                    Text="{Binding Label}" />
+                            </ContentView>
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                Style="{StaticResource TableRowDisclosureStyle}"
+                                FontSize="{StaticResource LargerSize}"
+                                Text="&#xf105;"
+                                FontFamily="{StaticResource FontAwesomeSolid}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+            <ListView.Footer>
+                <ContentView />
+            </ListView.Footer>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

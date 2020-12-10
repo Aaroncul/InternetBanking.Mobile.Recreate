@@ -1,0 +1,124 @@
+﻿<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InternetBanking.Views.ChangePinView"
+    xmlns:converters="clr-namespace:InternetBanking.Converters"
+    xmlns:controls="clr-namespace:InternetBanking.Controls"
+    Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:FirstValidationErrorConverter
+                x:Key="FirstValidationErrorConverter" />
+            <converters:NullableBalanceConverter
+                x:Key="NullableBalanceConverter" />
+            <converters:CurrencyConverter
+                x:Key="CurrencyConverter" />
+            <converters:FontFamilyConverter
+                x:Key="FontFamilyConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView
+            BackgroundColor="{StaticResource WhiteColor}">
+            <StackLayout>
+                <controls:CustomHeader
+                    HeightRequest="70"
+                    Message="Enter your current password, then the new one you want to use." />
+                <Grid
+                    Margin="0,-5,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="10" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="*" />
+                        <ColumnDefinition
+                            Width="10" />
+                    </Grid.ColumnDefinitions>
+                    <!--Start Row 0-->
+                    <Label
+                        Text="Your current PIN"
+                        Style="{StaticResource GridRowHeaderStyle}"
+                        Grid.Row="0" />
+                    <!--End Row 0-->
+
+                    <!--Start Row 1-->
+                    <Label
+                        Text="PIN"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        Grid.Row="1" />
+                    <Entry
+                        Style="{StaticResource GridRowEntryStyle}"
+                        Keyboard="Numeric"
+                        IsPassword="True"
+                        Text="{Binding CurrentPin}"
+                        MaxLength="{Binding PinLength}"
+                        Grid.Row="1" />
+                    <!--End Row 1-->
+
+                    <!--Start Row 2-->
+                    <Label
+                        Text="Your new PIN"
+                        Style="{StaticResource GridRowHeaderStyle}"
+                        Grid.Row="2" />
+                    <!--End Row 2-->
+
+                    <!--Start Row 3-->
+                    <Label
+                        Text="PIN"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        Grid.Row="3" />
+                    <Entry
+                        Style="{StaticResource GridRowEntryStyle}"
+                        Keyboard="Numeric"
+                        IsPassword="True"
+                        Text="{Binding Pin1}"
+                        MaxLength="{Binding PinLength}"
+                        Grid.Row="3" />
+                    <!--End Row 3-->
+
+                    <!--Start Row 4-->
+                    <Label
+                        Text="Confirm PIN"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        Grid.Row="4" />
+                    <Entry
+                        Style="{StaticResource GridRowEntryStyle}"
+                        Keyboard="Numeric"
+                        IsPassword="True"
+                        Text="{Binding Pin2}"
+                        MaxLength="{Binding PinLength}"
+                        Grid.Row="4" />
+                    <!--End Row 4-->
+                </Grid>
+
+                <Label
+                    IsVisible="{Binding CurrentPin.Errors,
+                        Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                    Style="{StaticResource ValidationErrorLabelStyle}"
+                    Text="{Binding CurrentPin.Errors,
+                        Converter={StaticResource FirstValidationErrorConverter}}" />
+
+                <Label
+                    IsVisible="{Binding Pin1.Errors,
+                        Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                    Style="{StaticResource ValidationErrorLabelStyle}"
+                    Text="{Binding Pin1.Errors,
+                        Converter={StaticResource FirstValidationErrorConverter}}" />
+
+                <Button
+                    Command="{Binding SaveCommand}"
+                    Style="{StaticResource BottomButtonStyle}"
+                    Text="Confirm" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>

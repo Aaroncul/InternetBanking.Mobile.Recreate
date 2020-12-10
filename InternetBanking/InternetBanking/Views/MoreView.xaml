@@ -1,0 +1,101 @@
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InternetBanking.Views.MoreView"
+    xmlns:behaviors="clr-namespace:InternetBanking.Behaviors"
+    xmlns:converters="clr-namespace:InternetBanking.Converters"
+    xmlns:controls="clr-namespace:InternetBanking.Controls"
+    Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <Style
+            x:Key="InputLabelStyle"
+            TargetType="{x:Type Label}">
+            <Setter
+                Property="FontSize"
+                Value="{StaticResource MediumSize}" />
+            <Setter
+                Property="TextColor"
+                Value="{StaticResource GrayColor}" />
+        </Style>
+        <ResourceDictionary>
+            <converters:FontFamilyConverter
+                x:Key="FontFamilyConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="{StaticResource OffWhiteColor}">
+            <controls:Banner />
+            <ListView
+                x:Name="listView"
+                ItemsSource="{Binding Sections}"
+                SelectedItem="{Binding SelectedSectionItem, Mode=TwoWay}"
+                IsGroupingEnabled="true"
+                IsPullToRefreshEnabled="false"
+                CachingStrategy="RecycleElement"
+                HasUnevenRows="true"
+                SeparatorVisibility="None"
+                SelectionMode="Single">
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior
+                        EventName="ItemTapped"
+                        Command="{Binding TableRowSelectedCommand}"
+                        EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}">
+                    </behaviors:EventToCommandBehavior>
+                </ListView.Behaviors>
+
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label
+                                Style="{StaticResource GridRowHeaderStyle}"
+                                Text="{Binding Heading}" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition
+                                        Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition
+                                        Width="10" />
+                                    <ColumnDefinition
+                                        Width="Auto" />
+                                    <ColumnDefinition
+                                        Width="*" />
+                                    <ColumnDefinition
+                                        Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    FontSize="{StaticResource BigSize}"
+                                    Text="{Binding Icon.Code}"
+                                    Style="{StaticResource GridRowIconStyle}"
+                                    FontFamily="{Binding Icon.FontPackage, Converter={StaticResource FontFamilyConverter}}"
+                                    Grid.Row="0" />
+                                <Label
+                                    Text="{Binding Icon.Code}"
+                                    Style="{StaticResource GridRowIconStyle}"
+                                    FontFamily="{Binding Icon.FontPackage, Converter={StaticResource FontFamilyConverter}}"
+                                    Grid.Row="0" />
+                                <Label
+                                    Margin="8"
+                                    Padding="5"
+                                    Grid.Row="0"
+                                    Style="{StaticResource GridRowLabelStyle}"
+                                    Text="{Binding Label}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

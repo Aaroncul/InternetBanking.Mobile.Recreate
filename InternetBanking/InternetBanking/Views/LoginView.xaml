@@ -1,0 +1,564 @@
+﻿<TabbedPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InternetBanking.Views.LoginView"
+    xmlns:converters="clr-namespace:InternetBanking.Converters;assembly=InternetBanking"
+    xmlns:behaviors="clr-namespace:InternetBanking.Behaviors;assembly=InternetBanking"
+    xmlns:controls="clr-namespace:InternetBanking.Controls"
+    Title="{Binding Title}">
+
+    <TabbedPage.Resources>
+        <ResourceDictionary>
+
+            <converters:FirstValidationErrorConverter
+                x:Key="FirstValidationErrorConverter" />
+            <converters:InverseBoolConverter
+                x:Key="InverseBoolConverter" />
+
+            <Style
+                x:Key="InputLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource MediumSize}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource GrayColor}" />
+            </Style>
+
+            <Style x:Key="LoginButtonStyle"
+                   TargetType="{x:Type Button}">
+                <Setter
+                    Property="Margin"
+                    Value="0,20,0,0" />
+                <Setter
+                    Property="CornerRadius"
+                    Value="8" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargerSize}" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="Bold" />
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{Binding PrimaryColor}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{Binding PrimaryTextColor}" />
+                <Setter
+                    Property="BorderRadius"
+                    Value="0" />
+            </Style>
+
+            <Style
+                x:Key="ColumnZeroLoginLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource LightGrayColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargerSize}" />
+                <Setter
+                    Property="Grid.Column"
+                    Value="1" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </TabbedPage.Resources>
+
+    <ContentPage
+        Title="Sign in"
+        Icon="passwordW.png"
+        AutomationId="PassWordImage"
+        BackgroundColor="{StaticResource WhiteColor}">
+        <ScrollView>
+            <StackLayout>
+                <controls:Banner
+                    AutomationId="BannerImage"/>
+                <Grid
+                    IsVisible="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="20" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="*" />
+                        <ColumnDefinition
+                            Width="20" />
+                    </Grid.ColumnDefinitions>
+                    <!--Start Row 0-->
+                    <Label
+                        Text="Member ID"
+                        Grid.Row="0"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        HorizontalOptions="End"
+                        HorizontalTextAlignment="End"/>
+                    <Entry
+                        Text="{Binding MemberNumber.Value, Mode=TwoWay}"
+                        Style="{StaticResource GridRowEntryStyle}"
+                        Grid.Row="0"
+                        AutomationId="MemberEntry"
+                        Keyboard="Numeric">
+                        <Entry.Behaviors>
+                            <behaviors:EventToCommandBehavior
+                                EventName="TextChanged"
+                                Command="{Binding ValidateMemberNumberCommand}" />
+                        </Entry.Behaviors>
+                        <Entry.Triggers>
+                            <DataTrigger
+                                TargetType="Entry"
+                                Binding="{Binding MemberNumber.IsValid}"
+                                Value="False">
+                                <Setter
+                                    Property="behaviors:LineColorBehavior.LineColor"
+                                    Value="{StaticResource ErrorColor}" />
+                            </DataTrigger>
+                        </Entry.Triggers>
+                    </Entry>
+                    <!--End Row 0-->
+                    <!--Start Row 1-->
+                    <Label
+                        Text="PIN"
+                        Grid.Row="1"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        HorizontalOptions="End"
+                        HorizontalTextAlignment="End"/>
+                    <Entry
+                        IsPassword="true"
+                        MaxLength="{Binding PinLength}"
+                        Text="{Binding Pin.Value, Mode=TwoWay}"
+                        Style="{StaticResource GridRowEntryStyle}"       
+                        Grid.Row="1"
+                        AutomationId="PINEntry"
+                        Keyboard="Numeric">
+                        <Entry.Behaviors>
+                            <behaviors:EventToCommandBehavior
+                                EventName="TextChanged"
+                                Command="{Binding ValidatePinCommand}" />
+                        </Entry.Behaviors>
+                        <Entry.Triggers>
+                            <DataTrigger
+                                TargetType="Entry"
+                                Binding="{Binding Pin.IsValid}"
+                                Value="False">
+                                <Setter
+                                    Property="behaviors:LineColorBehavior.LineColor"
+                                    Value="{StaticResource ErrorColor}" />
+                            </DataTrigger>
+                        </Entry.Triggers>
+                    </Entry>
+                    <!--End Row 1-->
+                </Grid>
+                <Label
+                    IsVisible="{Binding MemberNumber.Errors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                    Style="{StaticResource ValidationErrorLabelStyle}"
+                    Text="{Binding MemberNumber.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                    AutomationId="MemberNumberSignInValidation" />
+                <Label
+                    IsVisible="{Binding Pin.Errors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                    Style="{StaticResource ValidationErrorLabelStyle}"
+                    Text="{Binding Pin.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                    AutomationId="PINSignInValidation" />
+                <Button
+                    IsVisible="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}"
+                    Margin="25,10,25,0"
+                    Style="{StaticResource BottomButtonStyle}"
+                    Text="Login"
+                    Command="{Binding LoginCommand}"
+                    AutomationId="LogInButton"/>
+                <Button
+                    IsVisible="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}"
+                    HorizontalOptions="End"
+                    TextColor="{StaticResource GrayColor}"
+                    FontSize="{StaticResource MediumSize}"
+                    Margin="15,0,25,0"
+                    Text="Forgot PIN"
+                    Command="{Binding ForgotPinCommand}"
+                    AutomationId="ForgotPINButton" 
+                    WidthRequest="150"/>
+                <ActivityIndicator
+                    Color="{Binding PrimaryColor}"
+                    IsRunning="{Binding IsBusy}"
+                    IsVisible="{Binding IsBusy}"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="Center"
+                    WidthRequest="100" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+
+    <ContentPage
+        Title="Register"
+        Icon="handshakeW.png"
+        AutomationId="HandshakeImage"
+        BackgroundColor="{StaticResource WhiteColor}">
+        <ScrollView>
+            <StackLayout>
+                <controls:Banner
+                    AutomationId="BannerImageRegister"/>
+                <Label
+                    Padding="10"
+                    Margin="20,10,20,10"
+                    HeightRequest="50"
+                    BackgroundColor="{StaticResource OffWhiteColor}" 
+                    TextColor="{StaticResource BlackColor}"
+                    FontSize="{StaticResource LargerSize}"
+                    Text="Register to get an SMS activation code."
+                    HorizontalTextAlignment="Center"/>   
+                <Grid
+                    IsVisible="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="20" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="*" />
+                        <ColumnDefinition
+                            Width="20" />
+                    </Grid.ColumnDefinitions>
+                    <!--Start Row 0-->
+                    <Label
+                        Text="Member ID"
+                        Grid.Row="0"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        HorizontalOptions="End"
+                        HorizontalTextAlignment="End"/>
+                    <Entry
+                        Text="{Binding MemberNumber.Value, Mode=TwoWay}"
+                        Style="{StaticResource GridRowEntryStyle}"
+                        Grid.Row="0"
+                        AutomationId="MemberEntryRegister"
+                        Keyboard="Numeric">
+                        <Entry.Behaviors>
+                            <behaviors:EventToCommandBehavior
+                                EventName="TextChanged"
+                                Command="{Binding ValidateMemberNumberCommand}" />
+                        </Entry.Behaviors>
+                        <Entry.Triggers>
+                            <DataTrigger
+                                TargetType="Entry"
+                                Binding="{Binding MemberNumber.IsValid}"
+                                Value="False">
+                                <Setter
+                                    Property="behaviors:LineColorBehavior.LineColor"
+                                    Value="{StaticResource ErrorColor}" />
+                            </DataTrigger>
+                        </Entry.Triggers>
+                    </Entry>
+                    <!--End Row 0-->
+                    <!--Start Row 1-->
+                    <Label
+                        Text="Mobile"
+                        Grid.Row="1"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        HorizontalOptions="End"
+                        HorizontalTextAlignment="End"/>
+                    <Entry
+                        Text="{Binding MobileNumber.Value, Mode=TwoWay}"
+                        Keyboard="Telephone"
+                        Style="{StaticResource GridRowEntryStyle}"
+                        Grid.Row="1"
+                        AutomationId="MobileEntry">
+                        <Entry.Behaviors>
+                            <behaviors:EventToCommandBehavior
+                                EventName="TextChanged"
+                                Command="{Binding ValidateMobileNumberCommand}" />
+                            <behaviors:MaskedBehavior
+                                Mask="XXXXX XXXXXX" />
+                        </Entry.Behaviors>
+                        <Entry.Triggers>
+                            <DataTrigger
+                                TargetType="Entry"
+                                Binding="{Binding MobileNumber.IsValid}"
+                                Value="False">
+                                <Setter
+                                    Property="behaviors:LineColorBehavior.LineColor"
+                                    Value="{StaticResource ErrorColor}" />
+                            </DataTrigger>
+                        </Entry.Triggers>
+                    </Entry>
+                    <!--End Row 1-->
+                    <!--Start Row 2-->
+                    <Label
+                        Text="Date of birth"
+                        Grid.Row="2"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        HorizontalOptions="End"
+                        HorizontalTextAlignment="End"/>
+                    <DatePicker
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        Date="{Binding DateOfBirth.Value, Mode=TwoWay}"
+                        MaximumDate="{Binding MaximumDateOfBirth}"
+                        HorizontalOptions="FillAndExpand"
+                        AutomationId="DOBEntry">
+                        <DatePicker.Behaviors>
+                            <behaviors:EventToCommandBehavior
+                                EventName="DateSelected"
+                                Command="{Binding ValidateDateOfBirthCommand}" />
+                        </DatePicker.Behaviors>
+                        <DatePicker.Triggers>
+                            <DataTrigger
+                                TargetType="DatePicker"
+                                Binding="{Binding DateOfBirth.IsValid}"
+                                Value="False">
+                                <Setter
+                                    Property="behaviors:LineColorBehavior.LineColor"
+                                    Value="{StaticResource ErrorColor}" />
+                            </DataTrigger>
+                        </DatePicker.Triggers>
+                    </DatePicker>
+                    <!--End Row 2-->
+                </Grid>
+                <ActivityIndicator
+                    Color="{Binding PrimaryColor}"
+                    IsRunning="{Binding IsBusy}"
+                    IsVisible="{Binding IsBusy}"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="Center"
+                    WidthRequest="100" />
+
+                <Label
+                    IsVisible="{Binding MemberNumber.Errors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                    Style="{StaticResource ValidationErrorLabelStyle}"
+                    Text="{Binding MemberNumber.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                    AutomationId="MemberNumberRegisterValidation" />
+
+                <Label
+                    IsVisible="{Binding MobileNumber.Errors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                    Style="{StaticResource ValidationErrorLabelStyle}"
+                    Text="{Binding MobileNumber.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                    AutomationId="MobileNumberValidation" />
+
+                <Label
+                    IsVisible="{Binding DateOfBirth.Errors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                    Style="{StaticResource ValidationErrorLabelStyle}"
+                    Text="{Binding DateOfBirth.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                    AutomationId="DateOfBirthValidation" />
+                <Button
+                    IsVisible="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}"
+                    Margin="25,10,25,35"
+                    Style="{StaticResource BottomButtonStyle}"
+                    Text="Register"
+                    Command="{Binding RegisterCommand}"
+                    AutomationId="RegisterButton" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+
+    <ContentPage
+        Title="Activate"
+        Icon="checkedW.png"
+        AutomationId="TickImage"
+        BackgroundColor="{StaticResource WhiteColor}">
+        <ScrollView>
+            <StackLayout>
+                <controls:Banner
+                    AutomationId="BannerImageActivate"/>
+                <controls:CustomHeader
+                    HorizontalTextAlignment="Center"
+                    HeightRequest="50"
+                    Margin="20,10,20,10"
+                    BackgroundColor="{StaticResource OffWhiteColor}"       
+                    TextColor="{StaticResource BlackColor}"
+                    Message="Enter your SMS activation code below." />
+                <Grid
+                    IsVisible="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="20" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="*" />
+                        <ColumnDefinition
+                            Width="20" />
+                    </Grid.ColumnDefinitions>
+                    <!--Start Row 0-->
+                    <Label
+                        Text="Member ID"
+                        Grid.Row="0"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        HorizontalOptions="End"
+                        HorizontalTextAlignment="End"/>
+                    <Entry
+                        Text="{Binding MemberNumber.Value, Mode=TwoWay}"
+                        Style="{StaticResource GridRowEntryStyle}"
+                        Grid.Row="0"
+                        AutomationId="MemberEntryActivate"
+                        Keyboard="Numeric">
+                        <Entry.Behaviors>
+                            <behaviors:EventToCommandBehavior
+                                EventName="TextChanged"
+                                Command="{Binding ValidateMemberNumberCommand}" />
+                        </Entry.Behaviors>
+                        <Entry.Triggers>
+                            <DataTrigger
+                                TargetType="Entry"
+                                Binding="{Binding MemberNumber.IsValid}"
+                                Value="False">
+                                <Setter
+                                    Property="behaviors:LineColorBehavior.LineColor"
+                                    Value="{StaticResource ErrorColor}" />
+                            </DataTrigger>
+                        </Entry.Triggers>
+                    </Entry>
+                    <!--End Row 0-->
+                    <!--Start Row 1-->
+                    <Label
+                        Text="SMS Code"
+                        Grid.Row="1"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        HorizontalOptions="End"
+                        HorizontalTextAlignment="End"/>
+                    <Entry
+                        Text="{Binding SmsActivationCode.Value, Mode=TwoWay}"
+                        Style="{StaticResource GridRowEntryStyle}"
+                        Grid.Row="1"
+                        AutomationId="ActivationCodeEntry"
+                        Keyboard="Numeric"
+                        IsEnabled="True"
+                        MaxLength="6">
+                        <Entry.Behaviors>
+                            <behaviors:EventToCommandBehavior 
+                                EventName="TextChanged"
+                                Command="{Binding ValidateSmsActivationCodeCommand}" />
+                        </Entry.Behaviors>
+                        <Entry.Triggers>
+                            <DataTrigger
+                                TargetType="Entry"
+                                Binding="{Binding SmsActivationCode.IsValid}"
+                                Value="False">
+                                <Setter
+                                    Property="behaviors:LineColorBehavior.LineColor"
+                                    Value="{StaticResource ErrorColor}" />
+                            </DataTrigger>
+                        </Entry.Triggers>
+                    </Entry>
+                    <!--End Row 1-->
+                    <!--Start Row 2-->
+                    <Label
+                        Text="Create PIN"
+                        Grid.Row="2"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        HorizontalOptions="End"
+                        HorizontalTextAlignment="End"/>
+                    <Entry
+                        Text="{Binding Pin1.Value, Mode=TwoWay}"
+                        Style="{StaticResource GridRowEntryStyle}"
+                        MaxLength="{Binding PinLength}"
+                        IsPassword="True"
+                        Grid.Row="2"
+                        AutomationId="CreatePINEntry"
+                        Keyboard="Numeric">
+                        <Entry.Behaviors>
+                            <behaviors:EventToCommandBehavior
+                                EventName="TextChanged"
+                                Command="{Binding ValidatePin1Command}" />
+                        </Entry.Behaviors>
+                        <Entry.Triggers>
+                            <DataTrigger
+                                TargetType="Entry"
+                                Binding="{Binding Pin1.IsValid}"
+                                Value="False">
+                                <Setter
+                                    Property="behaviors:LineColorBehavior.LineColor"
+                                    Value="{StaticResource ErrorColor}" />
+                            </DataTrigger>
+                        </Entry.Triggers>
+                    </Entry>
+                    <!--End Row 2-->
+                    <!--Start Row 3-->
+                    <Label
+                        Text="Confirm PIN"
+                        Grid.Row="3"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        HorizontalOptions="End"
+                        HorizontalTextAlignment="End"/>
+                    <Entry
+                        Text="{Binding Pin2.Value, Mode=TwoWay}"
+                        Style="{StaticResource GridRowEntryStyle}"
+                        MaxLength="{Binding PinLength}"
+                        IsPassword="True"
+                        Grid.Row="3"
+                        AutomationId="ConfirmPINEntry"
+                        Keyboard="Numeric">
+                        <Entry.Behaviors>
+                            <behaviors:EventToCommandBehavior
+                                EventName="TextChanged"
+                                Command="{Binding ValidatePin2Command}" />
+                        </Entry.Behaviors>
+                        <Entry.Triggers>
+                            <DataTrigger
+                                TargetType="Entry"
+                                Binding="{Binding Pin2.IsValid}"
+                                Value="False">
+                                <Setter
+                                    Property="behaviors:LineColorBehavior.LineColor"
+                                    Value="{StaticResource ErrorColor}" />
+                            </DataTrigger>
+                        </Entry.Triggers>
+                    </Entry>
+                    <!--End Row 3-->
+                </Grid>
+
+                <ActivityIndicator
+                    Color="{Binding PrimaryColor}"
+                    IsRunning="{Binding IsBusy}"
+                    IsVisible="{Binding IsBusy}"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="Center"
+                    WidthRequest="100" />
+                <Label
+                    IsVisible="{Binding MemberNumber.Errors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                    Style="{StaticResource ValidationErrorLabelStyle}"
+                    Text="{Binding MemberNumber.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                    AutomationId="MemberNumberActivateValidation" />
+
+                <Label
+                    IsVisible="{Binding SmsActivationCode.Errors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                    Style="{StaticResource ValidationErrorLabelStyle}"
+                    Text="{Binding SmsActivationCode.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                    AutomationId="ActivationCodeValidation" />
+
+                <Label
+                    IsVisible="{Binding Pin1.Errors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                    Style="{StaticResource ValidationErrorLabelStyle}"
+                    Text="{Binding Pin1.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                    AutomationId="CreatePINValidation" />
+
+                <Label
+                    IsVisible="{Binding Pin2.Errors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                    Style="{StaticResource ValidationErrorLabelStyle}"
+                    Text="{Binding Pin2.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                    AutomationId="ConfirmPINValidation" />
+
+                <Button
+                    Margin="25,10,25,35"
+                    Style="{StaticResource BottomButtonStyle}"
+                    Text="Activate"
+                    Command="{Binding ActivateCommand}"
+                    IsVisible="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}"
+                    AutomationId="ActivateButton" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+</TabbedPage>

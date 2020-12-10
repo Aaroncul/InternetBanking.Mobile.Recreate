@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InternetBanking.Views.AboutView"
+    Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style
+                x:Key="HeaderLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="Margin"
+                    Value="0,10,10,0" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource GrayColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargeSize}" />
+            </Style>
+
+            <Style
+                x:Key="ParagraphLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="Margin"
+                    Value="0,0,10,0" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource LightGrayColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource MediumSize}" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+                Padding="10">
+
+                <Label
+                    Style="{StaticResource ParagraphLabelStyle}"
+                    Text="This mobile appliation utilizes a number of third party libraries for various functionality and features. The following is a list of libraries packaged within the mobile app and their respective licenses where available." />
+
+                <Label
+                    Style="{StaticResource HeaderLabelStyle}"
+                    Text="ACR UserDialogs" />
+                <Label
+                    Style="{StaticResource ParagraphLabelStyle}"
+                    Text="https://github.com/aritchie/userdialogs" />
+                <Label
+                    Style="{StaticResource ParagraphLabelStyle}"
+                    Text="7.0.4" />
+                <Label
+                    Style="{StaticResource ParagraphLabelStyle}"
+                    Text="MIT License" />
+
+                <Label
+                    Style="{StaticResource HeaderLabelStyle}"
+                    Text="Microcharts" />
+                <Label
+                    Style="{StaticResource ParagraphLabelStyle}"
+                    Text="https://github.com/dotnet-ad/Microcharts" />
+                <Label
+                    Style="{StaticResource ParagraphLabelStyle}"
+                    Text="0.7.1" />
+                <Label
+                    Style="{StaticResource ParagraphLabelStyle}"
+                    Text="MIT License" />
+
+                <Label
+                    Style="{StaticResource HeaderLabelStyle}"
+                    Text="SkiaSharp" />
+                <Label
+                    Style="{StaticResource ParagraphLabelStyle}"
+                    Text="https://github.com/mono/SkiaSharp" />
+                <Label
+                    Style="{StaticResource ParagraphLabelStyle}"
+                    Text="1.68.0" />
+                <Label
+                    Style="{StaticResource ParagraphLabelStyle}"
+                    Text="MIT License" />
+
+                <Label
+                    Style="{StaticResource HeaderLabelStyle}"
+                    Text="SQLite-net" />
+                <Label
+                    Style="{StaticResource ParagraphLabelStyle}"
+                    Text="https://github.com/praeclarum/sqlite-net" />
+                <Label
+                    Style="{StaticResource ParagraphLabelStyle}"
+                    Text="1.5.231" />
+                <Label
+                    Style="{StaticResource ParagraphLabelStyle}"
+                    Text="MIT License" />
+
+                <Label
+                    Style="{StaticResource HeaderLabelStyle}"
+                    Text="Xamarin Forms" />
+                <Label
+                    Style="{StaticResource ParagraphLabelStyle}"
+                    Text="https://github.com/xamarin/Xamarin.Forms" />
+                <Label
+                    Style="{StaticResource ParagraphLabelStyle}"
+                    Text="4.0.0.497661" />
+                <Label
+                    Style="{StaticResource ParagraphLabelStyle}"
+                    Text="MIT License" />
+
+            </StackLayout>
+
+        </ScrollView>
+
+    </ContentPage.Content>
+
+</ContentPage>

@@ -1,0 +1,84 @@
+﻿<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InternetBanking.Views.AddedBankAccountsView"
+    xmlns:controls="clr-namespace:InternetBanking.Controls"
+    Title="{Binding Title}"
+    x:Name="AddedBankAccounts">
+    <ContentPage.Content>
+        <ListView
+            ItemsSource="{Binding BankAccounts}"
+            BackgroundColor="{StaticResource WhiteColor}"
+            CachingStrategy="RecycleElement"
+            HasUnevenRows="true"
+            SelectedItem="{Binding SelectedAccount}"
+            RefreshCommand="{Binding RefreshCommand}"
+            IsPullToRefreshEnabled="true"
+            IsRefreshing="{Binding IsBusy}">
+            <ListView.Header>
+                <controls:CustomHeader
+                    HeightRequest="100"
+                    Message="These are your linked bank accounts. Send money to these by clicking the withdraw button on the Accounts page." />
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout
+                            Margin="20,10,20,10">
+                            <Label
+                                TextColor="{StaticResource BlackColor}"
+                                Text="{Binding Name}">
+                            </Label>
+                            <StackLayout
+                                Orientation="Horizontal">
+                                <Label
+                                    TextColor="{StaticResource GrayColor}"
+                                    Text="Account Number:"/>
+                                <Label
+                                    Text="{Binding AccountNumber}"/>
+                            </StackLayout>
+                            <StackLayout
+                                Orientation="Horizontal">
+                                <Label
+                                    TextColor="{StaticResource GrayColor}"
+                                    Text="Sort Code:" />
+                                <Label
+                                    Text="{Binding SortCode}" />
+                            </StackLayout>
+                            <StackLayout
+                                Orientation="Horizontal">
+                                <Label
+                                    TextColor="{StaticResource GrayColor}"
+                                    Text="Status:" />
+                                <Label
+                                    Text="{Binding Status}" />
+                            </StackLayout>
+                        </StackLayout>
+                        <ViewCell.ContextActions>
+                            <MenuItem 
+                                Text="Toggle Active" 
+                                Command="{Binding Path=BindingContext.ToggleActiveCommand, Source={x:Reference AddedBankAccounts}}" 
+                                CommandParameter="{Binding .}" 
+                            />
+                        </ViewCell.ContextActions>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Footer>
+                <StackLayout Padding="10">
+                    <Label 
+                        Text="We couldn't find any linked accounts!"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        IsVisible="{Binding HasBankAccount,Converter={StaticResource InverseBoolConverter}}"
+                        />
+                    <Button
+                        Command="{Binding AddBankAccountCommand}"
+                        Style="{StaticResource BottomButtonStyle}"
+                        IsVisible="{Binding HasBankAccount,Converter={StaticResource InverseBoolConverter}}"
+                        Text="Add a Bank Account" />
+                </StackLayout>
+            </ListView.Footer>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

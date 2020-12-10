@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InternetBanking.Views.MessagesView"
+    xmlns:vm="clr-namespace:InternetBanking.ViewModels"
+    xmlns:converters="clr-namespace:InternetBanking.Converters"
+    Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <converters:NormalizeDateTimeConverter
+                x:Key="NormalizeDateTimeConverter" />
+
+            <Style
+                x:Key="MessageSubjectStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BlackColor}" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="Bold" />
+                <Setter
+                    Property="LineBreakMode"
+                    Value="TailTruncation" />
+            </Style>
+
+            <Style
+                x:Key="MessageTimestampStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource GrayColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource MidMediumSize}" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="End" />
+            </Style>
+
+            <Style
+                x:Key="MessagePreviewStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource GrayColor}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Name="toolbarItemCompose"
+            Order="Primary"
+            Priority="0"
+            Text="Compose"
+            Command="{Binding ComposeCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+
+        <ListView
+            x:Name="listViewMessageThreads"
+            ItemsSource="{Binding MessageThreads}"
+            BackgroundColor="{StaticResource OffWhiteColor}"
+            RefreshCommand="{Binding RefreshCommand}"
+            IsRefreshing="{Binding IsRefreshing}"
+            IsPullToRefreshEnabled="true"
+            CachingStrategy="RecycleElement"
+            HasUnevenRows="true">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid
+                            BackgroundColor="{StaticResource WhiteColor}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition
+                                    Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition
+                                    Width="Auto" />
+                                <ColumnDefinition
+                                    Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <ContentView
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Padding="10,10,8,10">
+                                <Label
+                                    TextColor="#2c7bf5"
+                                    Text="&#xf111;"
+                                    FontFamily="{StaticResource FontAwesomeSolid}" />
+                            </ContentView>
+                            <Grid
+                                Grid.Column="1"
+                                RowSpacing="0"
+                                Padding="0,10,10,10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition
+                                        Height="Auto" />
+                                    <RowDefinition
+                                        Height="65" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition
+                                        Width="*" />
+                                    <ColumnDefinition
+                                        Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Style="{StaticResource MessageSubjectStyle}"
+                                    Text="{Binding Subject}" />
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Style="{StaticResource MessageTimestampStyle}"
+                                    Text="{Binding OpenDate, Converter={StaticResource NormalizeDateTimeConverter}}" />
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Margin="0,5,0,0"
+                                    Style="{StaticResource MessagePreviewStyle}"
+                                    Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac sagittis quam. Nunc ut lacinia dolor..." />
+                            </Grid>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+            <ListView.Footer>
+                <ContentView />
+            </ListView.Footer>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

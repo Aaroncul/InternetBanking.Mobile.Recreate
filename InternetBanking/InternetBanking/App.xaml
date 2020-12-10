@@ -1,0 +1,866 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:InternetBanking.Converters;assembly=InternetBanking"
+    xmlns:behaviors="clr-namespace:InternetBanking.Behaviors;assembly=InternetBanking"
+    x:Class="InternetBanking.App">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <!-- FONTS -->
+            <OnPlatform
+                x:TypeArguments="x:String"
+                x:Key="FontAwesomeBrands">
+                <On
+                    Platform="Android"
+                    Value="FontAwesome5BrandsRegular.otf#Regular" />
+                <On
+                    Platform="iOS"
+                    Value="FontAwesome5Brands-Regular" />
+            </OnPlatform>
+
+            <OnPlatform
+                x:TypeArguments="x:String"
+                x:Key="FontAwesomeSolid">
+                <On
+                    Platform="Android"
+                    Value="FontAwesome5Solid.otf#Regular" />
+                <On
+                    Platform="iOS"
+                    Value="FontAwesome5Free-Solid" />
+            </OnPlatform>
+
+            <OnPlatform
+                x:TypeArguments="x:String"
+                x:Key="FontAwesomeRegular">
+                <On
+                    Platform="Android"
+                    Value="FontAwesome5Regular.otf#Regular" />
+                <On
+                    Platform="iOS"
+                    Value="FontAwesome5Free-Regular" />
+            </OnPlatform>
+
+            <!-- COLORS -->
+            <Color
+                x:Key="WhiteColor">#ffffff</Color>
+            <Color
+                x:Key="OffWhiteColor">#efeff4</Color>
+            <Color
+                x:Key="BlackColor">#000000</Color>
+            <Color
+                x:Key="BackgroundColor">#F4F6FA</Color>
+            <Color
+                x:Key="AccentColor">#00857D</Color>
+            <Color
+                x:Key="LightGreenColor">#83D01B</Color>
+            <Color
+                x:Key="GreenColor">#30704F</Color>
+            <Color
+                x:Key="DarkGreenColor">#00857D</Color>
+            <Color
+                x:Key="GrayColor">#444444</Color>
+            <Color
+                x:Key="LightGrayColor">#828286</Color>
+            <Color
+                x:Key="ErrorColor">#ff5252</Color>
+            <Color
+                x:Key="TextColor">#757575</Color>
+            <Color
+                x:Key="InverseTextColor">#FFFFFF</Color>
+            <Color
+                x:Key="LightTextColor">#c7c7cc</Color>
+            <Color
+                x:Key="iOSDefaultTintColor">#007aff</Color>
+            <Color
+                x:Key="SeparatorLineColor">#CCCCCC</Color>
+            <Color
+                x:Key="AndroidDefaultButtonClassBackgroundColor">#C9C9C9</Color>
+            <Color
+                x:Key="iOSDefaultButtonClassBackgroundColor">Transparent</Color>
+            <Color
+                x:Key="AndroidDefaultButtonClassBorderColor">Transparent</Color>
+            <Color
+                x:Key="iOSDefaultButtonClassBorderColor">#007aff</Color>
+            <Color
+                x:Key="AndroidDefaultButtonClassTextColor">#FFFFFF</Color>
+            <Color
+                x:Key="iOSDefaultButtonClassTextColor">#007aff</Color>
+            <Color
+                x:Key="AndroidEntryBackgroundColor">Transparent</Color>
+            <Color
+                x:Key="iOSEntryBackgroundColor">#FFFFFF</Color>
+            <Color
+                x:Key="AndroidDefaultAccentColorColor">#1FAECE</Color>
+            <Color
+                x:Key="AndroidListViewBackgroundColor">White</Color>
+            <Color
+                x:Key="iOSListViewBackgroundColor">White</Color>
+
+            <OnPlatform
+                x:TypeArguments="Color"
+                x:Key="DefaultButtonClassBackgroundColor">
+                <On
+                    Platform="iOS"
+                    Value="{ StaticResource iOSDefaultButtonClassBackgroundColor }" />
+                <On
+                    Platform="Android"
+                    Value="{ StaticResource AndroidDefaultButtonClassBackgroundColor }" />
+            </OnPlatform>
+
+            <OnPlatform
+                x:TypeArguments="Color"
+                x:Key="DefaultButtonClassBorderColor">
+                <On
+                    Platform="iOS"
+                    Value="{ StaticResource iOSDefaultButtonClassBorderColor }" />
+                <On
+                    Platform="Android"
+                    Value="{ StaticResource AndroidDefaultButtonClassBorderColor }" />
+            </OnPlatform>
+
+            <OnPlatform
+                x:TypeArguments="Color"
+                x:Key="DefaultButtonClassTextColor">
+                <On
+                    Platform="iOS"
+                    Value="{ StaticResource iOSDefaultButtonClassTextColor }" />
+                <On
+                    Platform="Android"
+                    Value="{ StaticResource AndroidDefaultButtonClassTextColor }" />
+            </OnPlatform>
+
+            <OnPlatform
+                x:TypeArguments="Color"
+                x:Key="EntryBackgroundColor">
+                <On
+                    Platform="iOS"
+                    Value="{ StaticResource iOSEntryBackgroundColor }" />
+                <On
+                    Platform="Android"
+                    Value="{ StaticResource AndroidEntryBackgroundColor }" />
+            </OnPlatform>
+
+            <OnPlatform
+                x:TypeArguments="Color"
+                x:Key="ThemeListViewBackgroundColor">
+                <On
+                    Platform="iOS"
+                    Value="{ StaticResource iOSListViewBackgroundColor }" />
+                <On
+                    Platform="Android"
+                    Value="{ StaticResource AndroidListViewBackgroundColor }" />
+            </OnPlatform>
+
+            <!-- SIZES -->
+            <OnPlatform
+                x:TypeArguments="x:Double"
+                x:Key="BaseButtonBorderRadius">
+                <On
+                    Platform="iOS"
+                    Value="6" />
+            </OnPlatform>
+
+            <OnPlatform
+                x:TypeArguments="x:Double"
+                x:Key="BaseButtonBorderWidth">
+                <On
+                    Platform="iOS, Android"
+                    Value="0" />
+            </OnPlatform>
+
+            <OnPlatform
+                x:TypeArguments="x:Double"
+                x:Key="BaseButtonFontSize">
+                <On
+                    Platform="iOS"
+                    Value="18" />
+                <On
+                    Platform="Android"
+                    Value="16" />
+            </OnPlatform>
+
+            <OnPlatform
+                x:TypeArguments="x:Double"
+                x:Key="BaseFontSize">
+                <On
+                    Platform="iOS"
+                    Value="16" />
+                <On
+                    Platform="Android"
+                    Value="15" />
+            </OnPlatform>
+
+            <OnPlatform
+                x:Key="LittleSize"
+                x:TypeArguments="x:Double">
+                <On
+                    Platform="iOS"
+                    Value="11" />
+                <On
+                    Platform="Android, UWP, WinRT, WinPhone"
+                    Value="12" />
+            </OnPlatform>
+
+            <OnPlatform
+                x:Key="MidMediumSize"
+                x:TypeArguments="x:Double">
+                <On
+                    Platform="iOS"
+                    Value="12" />
+                <On
+                    Platform="Android, UWP, WinRT, WinPhone"
+                    Value="14" />
+            </OnPlatform>
+
+            <OnPlatform
+                x:Key="MediumSize"
+                x:TypeArguments="x:Double">
+                <On
+                    Platform="iOS"
+                    Value="14" />
+                <On
+                    Platform="Android, UWP, WinRT, WinPhone"
+                    Value="16" />
+            </OnPlatform>
+
+            <OnPlatform
+                x:Key="LargeSize"
+                x:TypeArguments="x:Double">
+                <On
+                    Platform="iOS"
+                    Value="16" />
+                <On
+                    Platform="Android, UWP, WinRT, WinPhone"
+                    Value="18" />
+            </OnPlatform>
+
+            <OnPlatform
+                x:Key="LargerSize"
+                x:TypeArguments="x:Double">
+                <On
+                    Platform="iOS"
+                    Value="18" />
+                <On
+                    Platform="Android, UWP, WinRT, WinPhone"
+                    Value="20" />
+            </OnPlatform>
+
+            <OnPlatform
+                x:Key="BigSize"
+                x:TypeArguments="x:Double">
+                <On
+                    Platform="iOS"
+                    Value="20" />
+                <On
+                    Platform="Android, UWP, WinRT, WinPhone"
+                    Value="24" />
+            </OnPlatform>
+
+            <OnPlatform
+                x:Key="ExtraBigSize"
+                x:TypeArguments="x:Double">
+                <On
+                    Platform="iOS"
+                    Value="24" />
+                <On
+                    Platform="Android, UWP, WinRT, WinPhone"
+                    Value="32" />
+            </OnPlatform>
+
+            <OnPlatform
+                x:Key="HugeSize"
+                x:TypeArguments="x:Double">
+                <On
+                    Platform="iOS"
+                    Value="32" />
+                <On
+                    Platform="Android, UWP, WinRT, WinPhone"
+                    Value="48" />
+            </OnPlatform>
+
+            <OnPlatform
+                x:TypeArguments="FontAttributes"
+                x:Key="BaseButtonFontAttributes">
+                <On
+                    Platform="iOS"
+                    Value="Bold" />
+                <On
+                    Platform="Android"
+                    Value="None" />
+            </OnPlatform>
+
+            <!-- CONVERTERS -->
+            <converters:CountToBoolConverter
+                x:Key="CountToBoolConverter" />
+            <converters:DateTimeConverter
+                x:Key="DateTimeConverter" />
+            <converters:ImageConverter
+                x:Key="ImageConverter" />
+            <converters:ItemTappedEventArgsConverter
+                x:Key="ItemTappedEventArgsConverter" />
+            <converters:InverseCountToBoolConverter
+                x:Key="InverseCountToBoolConverter" />
+            <converters:InverseBoolConverter
+                x:Key="InverseBoolConverter" />
+            <converters:ItemsToHeightConverter
+                x:Key="ItemsToHeightConverter" />
+            <converters:ToUpperConverter
+                x:Key="ToUpperConverter" />
+            <converters:FontFamilyConverter
+                x:Key="FontFamilyConverter" />
+            <converters:StringNullOrEmptyBoolConverter
+                x:Key="StringNullOrEmptyBoolConverter" />
+            <!-- EXPLICIT STYLES -->
+            <Style
+                x:Key="GridRowHeaderStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{StaticResource OffWhiteColor}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource LightGrayColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargerSize}" />
+                <Setter
+                    Property="Padding"
+                    Value="20,10,10,10" />
+                <Setter
+                    Property="Grid.ColumnSpan"
+                    Value="4" />
+                <Setter
+                    Property="VerticalTextAlignment"
+                    Value="End" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="FillAndExpand" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="FillAndExpand" />
+            </Style>
+            <Style
+                x:Key="GridRowIconStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource LightGrayColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource BigSize}" />
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource FontAwesomeSolid}" />
+                <Setter
+                    Property="Padding"
+                    Value="20,10,10,10" />
+                <Setter
+                    Property="Grid.Column"
+                    Value="1" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="Center" />
+            </Style>
+
+            <Style
+                x:Key="ColumnZeroLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource LightGrayColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargerSize}" />
+                <Setter
+                    Property="Padding"
+                    Value="20,10,10,10" />
+                <Setter
+                    Property="Grid.Column"
+                    Value="1" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="End" />
+            </Style>
+            <Style
+                x:Key="GridRowLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BlackColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargerSize}" />
+                <Setter
+                    Property="LineBreakMode"
+                    Value="TailTruncation" />
+                <Setter
+                    Property="Padding"
+                    Value="20,10,10,10" />
+                <Setter
+                    Property="Grid.Column"
+                    Value="2" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+            </Style>
+            <Style
+                x:Key="GridRowEntryStyle"
+                TargetType="{x:Type Entry}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BlackColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargerSize}" />
+                <Setter
+                    Property="Grid.Column"
+                    Value="2" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="CenterAndExpand" />
+                <Setter
+                    Property="IsSpellCheckEnabled"
+                    Value="False" />
+            </Style>
+            <Style
+                x:Key="GridRowLoginEntryStyle"
+                TargetType="{x:Type Entry}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BlackColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargerSize}" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{StaticResource WhiteColor}" />
+                <Setter
+                    Property="Keyboard"
+                    Value="Numeric" />
+                <Setter
+                    Property="IsSpellCheckEnabled"
+                    Value="False" />
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{StaticResource WhiteColor}" />
+            </Style>
+            <Style
+                x:Key="ContentViewStyle"
+                TargetType="{x:Type ContentView}">
+                <Setter
+                    Property="Grid.ColumnSpan"
+                    Value="4" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="Fill" />
+                <Setter
+                    Property="Grid.Column"
+                    Value="0" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Fill" />
+            </Style>
+            <Style
+                x:Key="ValidationErrorLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource ErrorColor}" />
+                <Setter
+                    Property="Margin"
+                    Value="25,0,25,0" />
+            </Style>
+
+            <Style
+                x:Key="EntryStyle"
+                TargetType="{x:Type Entry}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BlackColor}" />
+                <Setter
+                    Property="PlaceholderColor"
+                    Value="{StaticResource BlackColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargeSize}" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="FillAndExpand" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="Bold" />
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{StaticResource WhiteColor}" />
+                <Setter
+                    Property="behaviors:LineColorBehavior.ApplyLineColor"
+                    Value="True" />
+                <Setter
+                    Property="behaviors:LineColorBehavior.LineColor"
+                    Value="{StaticResource BlackColor}" />
+            </Style>
+
+            <!-- IMPLICIT STYLES -->
+            <Style
+                TargetType="Button"
+                ApplyToDerivedTypes="True"
+                CanCascade="True">
+                <Setter
+                    Property="FontSize"
+                    Value="{ StaticResource BaseButtonFontSize }" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="{ StaticResource BaseButtonFontAttributes }" />
+                <Setter
+                    Property="BorderRadius"
+                    Value="{ StaticResource BaseButtonBorderRadius }" />
+                <Setter
+                    Property="BorderWidth"
+                    Value="{ StaticResource BaseButtonBorderWidth }" />
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{ StaticResource DefaultButtonClassBackgroundColor }" />
+                <Setter
+                    Property="BorderColor"
+                    Value="{ StaticResource DefaultButtonClassBorderColor }" />
+                <Setter
+                    Property="TextColor"
+                    Value="{ StaticResource DefaultButtonClassTextColor }" />
+            </Style>
+
+            <Style
+                TargetType="Label"
+                ApplyToDerivedTypes="True"
+                CanCascade="True">
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource BaseFontSize}" />
+            </Style>
+
+            <Style
+                TargetType="Entry"
+                ApplyToDerivedTypes="True"
+                CanCascade="True">
+                <Setter
+                    Property="TextColor"
+                    Value="{ StaticResource TextColor }" />
+                <Setter
+                    Property="PlaceholderColor"
+                    Value="{ StaticResource LightTextColor }" />
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{ StaticResource EntryBackgroundColor }" />
+            </Style>
+
+            <Style
+                TargetType="ImageCell"
+                ApplyToDerivedTypes="True"
+                CanCascade="True">
+                <Setter
+                    Property="TextColor"
+                    Value="{ StaticResource InverseTextColor }" />
+                <Setter
+                    Property="DetailColor"
+                    Value="{ StaticResource AccentColor }" />
+            </Style>
+
+            <Style
+                TargetType="TextCell"
+                ApplyToDerivedTypes="True"
+                CanCascade="True">
+                <Setter
+                    Property="TextColor"
+                    Value="{ StaticResource InverseTextColor }" />
+                <Setter
+                    Property="DetailColor"
+                    Value="{ StaticResource AccentColor }" />
+            </Style>
+
+            <Style
+                TargetType="ListView"
+                ApplyToDerivedTypes="True"
+                CanCascade="True">
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{ StaticResource ThemeListViewBackgroundColor }" />
+                <Setter
+                    Property="SeparatorColor"
+                    Value="{ StaticResource SeparatorLineColor }" />
+                <Setter
+                    Property="SeparatorVisibility"
+                    Value="Default" />
+            </Style>
+
+            <!-- CUSTOM STYLES -->
+            <Style
+                x:Key="PrimaryHeaderButtonStyle"
+                TargetType="{x:Type Button}">
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{Binding PrimaryColor}" />
+                <Setter
+                    Property="WidthRequest"
+                    Value="60" />
+                <Setter
+                    Property="HeightRequest"
+                    Value="60" />
+                <Setter
+                    Property="CornerRadius"
+                    Value="30" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource WhiteColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource ExtraBigSize}" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="None" />
+            </Style>
+
+            <Style
+                x:Key="HeaderButtonStyle"
+                TargetType="{x:Type Button}">
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{Binding PrimaryColor}" />
+                <Setter
+                    Property="WidthRequest"
+                    Value="60" />
+                <Setter
+                    Property="HeightRequest"
+                    Value="60" />
+                <Setter
+                    Property="CornerRadius"
+                    Value="30" />
+                <Setter
+                    Property="TextColor"
+                    Value="White" />
+                <Setter
+                    Property="BorderWidth"
+                    Value="1" />
+                <Setter
+                    Property="BorderColor"
+                    Value="{Binding PrimaryColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource ExtraBigSize}" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="None" />
+                <Setter
+                    Property="Margin"
+                    Value="10" />
+            </Style>
+
+            <Style
+                x:Key="HeaderButtonLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="Center" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource MediumSize}" />
+            </Style>
+
+            <Style
+                x:Key="TableTitleStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource LightGrayColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource MidMediumSize}" />
+            </Style>
+            <Style
+                x:Key="TableRowTitleStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource WhiteColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargerSize}" />
+                <Setter
+                    Property="LineBreakMode"
+                    Value="TailTruncation" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+                <Setter
+                    Property="Padding"
+                    Value="10,0,10,0" />
+            </Style>
+
+            <Style
+                x:Key="TableRowDetailStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="TextColor"
+                    Value="{Binding SecondaryColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargeSize}" />
+                <Setter
+                    Property="LineBreakMode"
+                    Value="TailTruncation" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+                <Setter
+                    Property="Padding"
+                    Value="10,0,10,10" />
+            </Style>
+
+            <Style
+                x:Key="TableRowRightDetailStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="Margin"
+                    Value="0,0,10,0" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BlackColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargeSize}" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="Bold" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+            </Style>
+
+            <Style
+                x:Key="TableRowDisclosureStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="Margin"
+                    Value="0,0,20,0" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource LightGrayColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargeSize}" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="None" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+            </Style>
+
+            <Style
+                x:Key="StackedFormLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource LightGrayColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargeSize}" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="None" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+                <Setter
+                    Property="WidthRequest"
+                    Value="100" />
+                <Setter
+                    Property="HorizontalTextAlignment"
+                    Value="End" />
+            </Style>
+
+            <Style
+                x:Key="BottomButtonGridStyle"
+                TargetType="{x:Type Button}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource WhiteColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargerSize}" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="Bold" />
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{Binding PrimaryColor}" />
+                <Setter
+                    Property="HeightRequest"
+                    Value="70" />
+            </Style>
+
+            <Style
+                x:Key="BottomLoginButtonStyle"
+                TargetType="{x:Type Button}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource WhiteColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargerSize}" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="Bold" />
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{Binding PrimaryColor}" />
+                <Setter
+                    Property="HeightRequest"
+                    Value="70" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="End" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="Fill" />
+            </Style>
+            <Style
+                x:Key="BottomButtonStyle"
+                TargetType="{x:Type Button}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource WhiteColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargeSize}" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="Bold" />
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{Binding PrimaryColor}" />
+                <Setter
+                    Property="HeightRequest"
+                    Value="70" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="End" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="Fill" />
+                <Setter
+                    Property="Margin"
+                    Value="25,10,25,35" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

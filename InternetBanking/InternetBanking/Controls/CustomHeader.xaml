@@ -1,0 +1,11 @@
+﻿<Label
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InternetBanking.Controls.CustomHeader"
+    Padding="10"
+    HeightRequest="80"
+    BackgroundColor="{Binding PrimaryColor}"
+    x:Name="message"
+    Grid.Row="0"
+    TextColor="{Binding SecondaryColor}"
+    FontSize="{StaticResource LargerSize}" />

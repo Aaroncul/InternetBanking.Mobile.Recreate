@@ -1,0 +1,192 @@
+﻿<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InternetBanking.Views.ForgotPinView"
+    xmlns:converters="clr-namespace:InternetBanking.Converters;assembly=InternetBanking"
+    xmlns:behaviors="clr-namespace:InternetBanking.Behaviors;assembly=InternetBanking"
+    xmlns:controls="clr-namespace:InternetBanking.Controls"
+    Title="{Binding Title}"
+    BackgroundColor="{StaticResource WhiteColor}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <converters:FirstValidationErrorConverter
+                x:Key="FirstValidationErrorConverter" />
+            <converters:InverseBoolConverter
+                x:Key="InverseBoolConverter" />
+
+            <Style
+                x:Key="DescriptionLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="Margin"
+                    Value="0,0,0,10" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource MediumSize}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BlackColor}" />
+            </Style>
+
+            <Style
+                x:Key="InputLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource MediumSize}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource GrayColor}" />
+            </Style>
+
+            <Style x:Key="LoginButtonStyle"
+                   TargetType="{x:Type Button}">
+                <Setter
+                    Property="Margin"
+                    Value="0,20,0,0" />
+                <Setter
+                    Property="CornerRadius"
+                    Value="8" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargerSize}" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="Bold" />
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{Binding PrimaryColor}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{Binding PrimaryTextColor}" />
+                <Setter
+                    Property="BorderRadius"
+                    Value="0" />
+            </Style>
+
+            <Style
+                x:Key="ColumnZeroLoginLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource LightGrayColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargerSize}" />
+                <Setter
+                    Property="Grid.Column"
+                    Value="1" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <controls:CustomHeader
+            HeightRequest="100"
+            Text="We can send you a text message to reset your password. Enter your member ID and the mobile number below." />
+        <Grid
+            IsVisible="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition
+                            Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="20" />
+                <ColumnDefinition
+                    Width="Auto" />
+                <ColumnDefinition
+                    Width="*" />
+                <ColumnDefinition
+                    Width="20" />
+            </Grid.ColumnDefinitions>
+            <!--Start Row 0-->
+            <Label
+                Grid.Row="0"
+                Style="{StaticResource ColumnZeroLabelStyle}"
+                HorizontalOptions="End"
+                HorizontalTextAlignment="End"
+                Text="Member ID" />
+
+            <Entry
+                Style="{StaticResource GridRowEntryStyle}"
+                Grid.Row="0"
+                Keyboard="Numeric"
+                Text="{Binding MemberNumber.Value, Mode=TwoWay}"
+                MaxLength="6"
+                AutomationId="MemberEntryForgotPIN">
+            </Entry>
+            <!--End Row 0-->
+            <!--Start Row 1-->
+            <Label
+                        Text="Mobile"
+                        Grid.Row="1"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        HorizontalOptions="End"
+                        HorizontalTextAlignment="End"/>
+            <Entry
+                Text="{Binding MobileNumber.Value, Mode=TwoWay}"
+                Keyboard="Telephone"
+                
+                        Style="{StaticResource GridRowEntryStyle}"
+                        Grid.Row="1"
+                AutomationId="MobileEntryForgotPIN">
+
+                <Entry.Behaviors>
+                    <behaviors:EventToCommandBehavior
+                        EventName="TextChanged"
+                        Command="{Binding ValidateMobileNumberCommand}" />
+                    <behaviors:MaskedBehavior
+                        Mask="XXXXX XXXXXX" />
+                </Entry.Behaviors>
+
+                <Entry.Triggers>
+                    <DataTrigger
+                        TargetType="Entry"
+                        Binding="{Binding MobileNumber.IsValid}"
+                        Value="False">
+                        <Setter
+                            Property="behaviors:LineColorBehavior.LineColor"
+                            Value="{StaticResource ErrorColor}" />
+                    </DataTrigger>
+                </Entry.Triggers>
+            </Entry>
+
+            <!--End Row 1-->
+        </Grid>
+
+
+        <ActivityIndicator
+            Color="{Binding PrimaryColor}"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            WidthRequest="100" />
+
+        <Label
+            IsVisible="{Binding MemberNumber.Errors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+            Style="{StaticResource ValidationErrorLabelStyle}"
+            Text="{Binding MemberNumber.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+            AutomationId="MemberNumberForgotPINValidation"/>
+
+        <Label
+            IsVisible="{Binding MobileNumber.Errors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+            Style="{StaticResource ValidationErrorLabelStyle}"
+            Text="{Binding MobileNumber.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+            AutomationId="MobileNumberForgotPINValidation"/>
+
+        <Button
+            IsVisible="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}"
+            Margin="25,10,25,35"
+            Text="Reset PIN"
+            Style="{StaticResource BottomButtonStyle}"
+            Command="{Binding ForgotPinCommand}" 
+            AutomationId="SignInButton"/>
+    </StackLayout>
+</ContentPage>

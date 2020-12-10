@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InternetBanking.Views.ComposeMessageView"
+    xmlns:converters="clr-namespace:InternetBanking.Converters;assembly=InternetBanking"
+    Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <converters:CharactersRemainingConverter
+                x:Key="CharactersRemainingConverter" />
+
+            <Style
+                x:Key="RemainingCharactersLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="Margin"
+                    Value="5,0" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource LightGrayColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource MidMediumSize}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Name="toolbarItemSend"
+            Order="Primary"
+            Priority="0"
+            Text="Send"
+            IsEnabled="{Binding IsSendEnabled, Mode=TwoWay}"
+            Command="{Binding SendCommand} " />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+
+        <TableView
+            Intent="Form"
+            HasUnevenRows="true">
+            <TableRoot>
+                <TableSection>
+                    <EntryCell
+                        Text="{Binding ThreadTitle}"
+                        Placeholder="How can we help?"
+                        Label="Subject"
+                        Keyboard="Text" />
+                </TableSection>
+                <TableSection>
+                    <ViewCell>
+                        <StackLayout
+                            Padding="10">
+                            <Label
+                                Style="{StaticResource RemainingCharactersLabelStyle}"
+                                BindingContext="{x:Reference editorContent}"
+                                Text="{Binding Text, Converter={StaticResource CharactersRemainingConverter}}" />
+                            <Editor
+                                x:Name="editorContent"
+                                Text="{Binding Content}"
+                                Keyboard="Text"
+                                HeightRequest="170"
+                                Placeholder="Write us a message" />
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

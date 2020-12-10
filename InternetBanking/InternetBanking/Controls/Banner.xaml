@@ -1,0 +1,19 @@
+﻿<RelativeLayout
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    x:Class="InternetBanking.Controls.Banner"
+    BackgroundColor="{Binding PrimaryColor}"
+    VerticalOptions="Start">
+    <skia:SKCanvasView
+        x:Name="canvasView"
+        PaintSurface="OnCanvasViewPaintSurface"
+        HeightRequest="170"
+        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />
+    <Image
+        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+        Margin="20,5,20,5"
+        HorizontalOptions="CenterAndExpand"
+        Source="banner.png"
+        HeightRequest="150" />
+</RelativeLayout>

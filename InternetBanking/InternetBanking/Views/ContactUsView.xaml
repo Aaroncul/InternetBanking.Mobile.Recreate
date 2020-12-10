@@ -1,0 +1,161 @@
+﻿<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:InternetBanking.Controls"
+    xmlns:behaviors="clr-namespace:InternetBanking.Behaviors"
+    x:Class="InternetBanking.Views.ContactUsView"
+    x:Name="contentPage"
+    Title="Contact Us">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Email Us"
+            Command="{Binding SendEmailCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style
+                x:Key="TitleLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource BigSize}" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="Bold" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="CenterAndExpand" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="CenterAndExpand" />
+            </Style>
+
+            <Style
+                x:Key="HeaderLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource GrayColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargeSize}" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="Center" />
+            </Style>
+
+            <Style
+                x:Key="ParagraphLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource GrayColor}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargeSize}" />
+                <Setter
+                    Property="Margin"
+                    Value="10,0,0,0" />
+            </Style>
+
+            <Style
+                x:Key="LinkLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="TextColor"
+                    Value="Blue" />
+                <Setter
+                    Property="TextDecorations"
+                    Value="Underline" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargeSize}" />
+                <Setter
+                    Property="Margin"
+                    Value="10,0,0,0" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <StackLayout>
+            <controls:CustomHeader
+                HeightRequest="100"
+                Message="Send us an email using the button above, or call one of our branches." />
+
+            <ListView
+                ItemsSource="{Binding Branches}"
+                HasUnevenRows="True"
+                BackgroundColor="{StaticResource OffWhiteColor}"
+                CachingStrategy="RecycleElement"
+                SelectedItem="{Binding SelectedBranch, Mode=TwoWay}">
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior
+                        EventName="ItemTapped"
+                        Command="{Binding TableRowSelectedCommand}"
+                        EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}">
+                    </behaviors:EventToCommandBehavior>
+                </ListView.Behaviors>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid
+                                BackgroundColor="{StaticResource WhiteColor}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition
+                                        Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition
+                                        Width="*" />
+                                    <ColumnDefinition
+                                        Width="Auto" />
+                                    <ColumnDefinition
+                                        Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackLayout
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Margin="10">
+
+                                    <Label
+                                        Style="{StaticResource ParagraphLabelStyle}"
+                                        Text="{Binding BranchName}"
+                                        TextColor="Black"
+                                        FontSize="{StaticResource BigSize}" />
+                                    <Label
+                                        Style="{StaticResource ParagraphLabelStyle}"
+                                        Text="{Binding Line1}" />
+                                    <Label
+                                        Style="{StaticResource ParagraphLabelStyle}"
+                                        Text="{Binding City}" />
+                                    <Label
+                                        Text="{Binding Phone}"
+                                        Style="{StaticResource LinkLabelStyle}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding Path= BindingContext.CallPhoneNumberCommand, Source={x:Reference contentPage}}"
+                                                CommandParameter="{Binding .}">
+                                            </TapGestureRecognizer>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+                                <Label
+                                    Text="&#xf531;"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="EndAndExpand"
+                                    FontFamily="{StaticResource FontAwesomeSolid}"
+                                    FontSize="{StaticResource LittleSize}" />
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

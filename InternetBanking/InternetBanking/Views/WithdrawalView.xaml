@@ -1,0 +1,172 @@
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InternetBanking.Views.WithdrawalView"
+    xmlns:converters="clr-namespace:InternetBanking.Converters"
+    xmlns:controls="clr-namespace:InternetBanking.Controls"
+    Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:FirstValidationErrorConverter
+                x:Key="FirstValidationErrorConverter" />
+            <converters:NullableBalanceConverter
+                x:Key="NullableBalanceConverter" />
+            <converters:CurrencyConverter
+                x:Key="CurrencyConverter" />
+            <converters:FontFamilyConverter
+                x:Key="FontFamilyConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView
+            BackgroundColor="{StaticResource WhiteColor}">
+            <StackLayout>
+                <controls:CustomHeader
+                    HeightRequest="100"
+                    Message="Move money from your credit union account to your linked bank account." />
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="10" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="*" />
+                        <ColumnDefinition
+                            Width="10" />
+                    </Grid.ColumnDefinitions>
+                    <!--Start Row 0-->
+                    <Label
+                        Text="From"
+                        Style="{StaticResource GridRowHeaderStyle}"
+                        Grid.Row="0"
+                        Margin="0,-5,0,0" />
+                    <!--End Row 0-->
+
+                    <!--Start Row 1-->
+                    <Label
+                        Text="Account"
+                        Grid.Row="1"
+                        Style="{StaticResource ColumnZeroLabelStyle}" />
+                    <Picker
+                        ItemsSource="{Binding FromAccounts}"
+                        ItemDisplayBinding="{Binding Description}"
+                        HorizontalOptions="FillAndExpand"
+                        SelectedItem="{Binding SelectedFromAccount}"
+                        Grid.Column="2"
+                        Grid.Row="1" />
+                    <!--End Row 1-->
+
+                    <!--Start Row 2-->
+                    <Label
+                        Text="Balance"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        Grid.Row="2" />
+                    <Entry
+                        Style="{StaticResource GridRowEntryStyle}"
+                        IsEnabled="False"
+                        TextColor="{StaticResource LightGrayColor}"
+                        Text="{Binding SelectedFromAccount.AvailableBalance,  StringFormat='{0:C2}'}"
+                        Grid.Row="2" />
+                    <!--End Row 2-->
+
+                    <!--Start Row 3-->
+                    <Label
+                        Text="To"
+                        Style="{StaticResource GridRowHeaderStyle}"
+                        Grid.Row="3" />
+                    <!--End Row 3-->
+
+                    <!--Start Row 4-->
+                    <Label
+                        Text="Account"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        Grid.Row="4" />
+                    <Picker
+                        ItemsSource="{Binding ToAccounts}"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedItem="{Binding SelectedToAccount.Value}"
+                        HorizontalOptions="FillAndExpand"
+                        Grid.Column="2"
+                        Grid.Row="4" />
+                    <!--End Row 4-->
+
+                    <!--Start Row 5-->
+                    <Label
+                        Text="Funds To Withdraw"
+                        Style="{StaticResource GridRowHeaderStyle}"
+                        Grid.Row="5" />
+                    <!--End Row 5-->
+
+                    <!--Start Row 6-->
+                    <Label
+                        Text="Amount"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        Grid.Row="6" />
+                    <Entry
+                        Style="{StaticResource GridRowEntryStyle}"
+                        Placeholder="0.00"
+                        Keyboard="Numeric"
+                        Text="{Binding Amount.Value, Converter={StaticResource CurrencyConverter}}"
+                        MaxLength="10"
+                        Grid.Row="6" />
+                    <!--End Row 6-->
+
+                    <!--Start Row 7-->
+                    <Label
+                        Text="Additional Information"
+                        Style="{StaticResource GridRowHeaderStyle}"
+                        Grid.Row="7" />
+                    <!--End Row 7-->
+
+                    <!--Start Row 8 -->
+                    <Label
+                        Text="Reference"
+                        Style="{StaticResource ColumnZeroLabelStyle}"
+                        Grid.Row="8" />
+                    <Entry
+                        Style="{StaticResource GridRowEntryStyle}"
+                        Placeholder="Gas, Rent, Electric, etc."
+                        Text="{Binding Reference.Value, Mode=TwoWay}"
+                        MaxLength="20"
+                        Grid.Row="8" />
+                    <!--End Row 8-->
+                </Grid>
+                <StackLayout
+                    Margin="10,0,0,0">
+                    <Label
+                        IsVisible="{Binding Amount.Errors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                        Style="{StaticResource ValidationErrorLabelStyle}"
+                        Text="{Binding Amount.Errors, Converter={StaticResource FirstValidationErrorConverter}}" />
+
+                    <Label
+                        IsVisible="{Binding Reference.Errors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                        Style="{StaticResource ValidationErrorLabelStyle}"
+                        Text="{Binding Reference.Errors, Converter={StaticResource FirstValidationErrorConverter}}" />
+
+                    <Label
+                        IsVisible="{Binding SelectedFromAccountErrors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                        Style="{StaticResource ValidationErrorLabelStyle}"
+                        Text="{Binding SelectedFromAccountErrors, Converter={StaticResource FirstValidationErrorConverter}}" />
+
+                    <Label
+                        IsVisible="{Binding SelectedToAccount.Errors, Converter={StaticResource StringNullOrEmptyBoolConverter}}"
+                        Style="{StaticResource ValidationErrorLabelStyle}"
+                        Text="{Binding SelectedToAccount.Errors, Converter={StaticResource FirstValidationErrorConverter}}" />
+                </StackLayout>
+
+                <Button
+                    Style="{StaticResource BottomButtonStyle}"
+                    Text="Withdraw"
+                    Command="{Binding WithdrawalCommand}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

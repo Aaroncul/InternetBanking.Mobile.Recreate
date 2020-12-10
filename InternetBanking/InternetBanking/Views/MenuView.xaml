@@ -1,0 +1,95 @@
+﻿<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InternetBanking.Views.MenuView"
+    x:Name="MainPage"
+    xmlns:behaviors="clr-namespace:InternetBanking.Behaviors"
+    xmlns:converters="clr-namespace:InternetBanking.Converters"
+    Title=" ">
+
+    <ContentPage.Resources>
+        <Style
+            x:Key="InputLabelStyle"
+            TargetType="{x:Type Label}">
+            <Setter
+                Property="FontSize"
+                Value="{StaticResource LargerSize}" />
+        </Style>
+        <ResourceDictionary>
+            <converters:FontFamilyConverter
+                x:Key="FontFamilyConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid
+            VerticalOptions="Fill"
+            HorizontalOptions="Fill">
+            <Image
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                Source="welcome.jpg"
+                Aspect="AspectFill"
+                Opacity="0.3" />
+            <StackLayout>
+                <Label
+                    Margin="0,20,0,0"
+                    Text="&#xf007;"
+                    FontSize="{StaticResource HugeSize}"
+                    FontFamily="{StaticResource FontAwesomeRegular}"
+                    HorizontalOptions="CenterAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding SettingsCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label
+                    FontSize="{StaticResource BigSize}"
+                    VerticalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding FirstName}"
+                    TextColor="{StaticResource BlackColor}" />
+                <ListView
+                    x:Name="Items"
+                    CachingStrategy="RecycleElement"
+                    ItemsSource="{Binding MenuItems, Mode=OneWay}"
+                    behaviors:ItemTappedCommandListView.ItemTappedCommand="{Binding ItemSelectedCommand}"
+                    SeparatorVisibility="None"
+                    VerticalOptions="Center"
+                    BackgroundColor="Transparent"
+                    Margin="10,15,0,15"
+                    HasUnevenRows="False">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout
+                                    Orientation="Horizontal"
+                                    VerticalOptions="CenterAndExpand">
+                                    <StackLayout.Triggers>
+                                        <DataTrigger
+                                            TargetType="StackLayout"
+                                            Binding="{Binding IsEnabled, Mode=TwoWay}"
+                                            Value="False">
+                                            <Setter
+                                                Property="Opacity"
+                                                Value="0.6" />
+                                        </DataTrigger>
+                                    </StackLayout.Triggers>
+                                    <Label
+                                        Text="{Binding Title}"
+                                        FontSize="{StaticResource BigSize}"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Margin="0,0,0,0"
+                                        Padding="0,0,0,0"
+                                        TextColor="Black">
+                                    </Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

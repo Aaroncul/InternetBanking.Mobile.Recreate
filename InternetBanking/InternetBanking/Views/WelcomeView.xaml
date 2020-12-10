@@ -1,0 +1,103 @@
+﻿<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InternetBanking.Views.WelcomeView">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style
+                x:Key="WelcomeLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter
+                    Property="TextColor"
+                    Value="{Binding AccentColor}" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="None" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="Center" />
+                <Setter
+                    Property="HorizontalTextAlignment"
+                    Value="Center" />
+                <Setter
+                    Property="FontSize"
+                    Value="42" />
+            </Style>
+
+            <Style
+                x:Key="GetStartedButtonStyle"
+                TargetType="{x:Type Button}">
+                <Setter
+                    Property="CornerRadius"
+                    Value="8" />
+                <Setter
+                    Property="HeightRequest"
+                    Value="60" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource LargeSize}" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="Bold" />
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{Binding SecondaryColor}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{Binding PrimaryTextColor}" />
+                <Setter
+                    Property="BorderRadius"
+                    Value="0" />
+                <Setter
+                    Property="Margin"
+                    Value="0,20,0,0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <RelativeLayout
+        VerticalOptions="Fill"
+        HorizontalOptions="Fill"
+        BackgroundColor="{Binding PrimaryColor}">
+        <Image
+            Source="welcome.jpg"
+            Aspect="AspectFill"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+            IsVisible="{Binding DisplayWelcomeImage}"/>
+        <StackLayout
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+            HorizontalOptions="Center"
+            FlowDirection="MatchParent"
+            VerticalOptions="Center">
+            <Frame
+                BackgroundColor="#99FFFFFF"
+                HorizontalOptions="Center"
+                WidthRequest="{Binding FrameWidth}"
+                HeightRequest="{Binding FrameHeight}"
+                CornerRadius="{Binding FrameRadius}">
+                <Image
+                    Source="logo.png" />
+            </Frame>
+            <Label
+                IsVisible="{Binding ShowSkinName}"
+                Style="{StaticResource WelcomeLabelStyle}"
+                Text="{Binding SkinName}" />
+            <Label
+                Style="{StaticResource WelcomeLabelStyle}"
+                Text="{Binding SkinDescription}"
+                FontSize="24" />
+            <Button
+                Style="{StaticResource GetStartedButtonStyle}"
+                Command="{Binding GetStartedCommand}"
+                BackgroundColor="{Binding PrimaryColor}"
+                BorderWidth="{Binding WelcomeButtonBorderWidth}"
+                BorderColor="{Binding AccentColor}"
+                Text="Get started"
+                AutomationId="GetStartedButton" />
+        </StackLayout>
+    </RelativeLayout>
+</ContentPage>

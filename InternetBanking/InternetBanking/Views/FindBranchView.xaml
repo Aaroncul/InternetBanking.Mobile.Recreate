@@ -1,0 +1,52 @@
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InternetBanking.Views.FindBranchView"
+    Title="{Binding Title}">
+
+    <ContentPage.Content>
+
+        <StackLayout
+            VerticalOptions="FillAndExpand"
+            Spacing="0">
+
+            <Grid
+                BackgroundColor="{StaticResource OffWhiteColor}"
+                Padding="10">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="40" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="*" />
+                    <ColumnDefinition
+                        Width="40" />
+                </Grid.ColumnDefinitions>
+
+                <Entry
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Keyboard="Text"
+                    Placeholder="Search..."
+                    Text="{Binding SearchText}" />
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="&#xf14e;"
+                    FontSize="{StaticResource LargeSize}"
+                    FontAttributes="None"
+                    Command="{Binding CenterCommand}"
+                    FontFamily="{StaticResource FontAwesomeSolid}" />
+            </Grid>
+
+            <ContentView
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Content="{Binding Map}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

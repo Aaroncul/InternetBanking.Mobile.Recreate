@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage    
+    x:Class="InternetBanking.Views.AccountView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:InternetBanking.Behaviors"
+    xmlns:components="clr-namespace:InternetBanking.ViewModels.Components"
+    xmlns:controls="clr-namespace:InternetBanking.Controls"
+    xmlns:converters="clr-namespace:InternetBanking.Converters"
+    xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+    Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:IsParameterConverter
+                x:Key="IsParameterConverter" />
+            <converters:InverseBoolConverter
+                x:Key="InverseBoolConverter" />
+            <converters:ProductTypeIdConverter
+                x:Key="ProductTypeIdConverter" />
+            <converters:DateChangedEventArgsConverter
+                x:Key="DateChangedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView
+            SelectionMode="None"
+            x:Name="listViewAccount"
+            CachingStrategy="RecycleElement"
+            HasUnevenRows="true"
+            IsGroupingEnabled="true"
+            ItemsSource="{Binding TransactionSections}"
+            IsPullToRefreshEnabled="true"
+            RefreshCommand="{Binding RefreshCommand}"
+            IsRefreshing="{Binding IsBusy}">
+                <ListView.Header>
+                    <Grid
+                    HeightRequest="200"
+                    Padding="0,5,0,5"
+                    BackgroundColor="{Binding PrimaryColor}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition
+                            Height="*" />
+                            <RowDefinition
+                            Height="50" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition
+                            Width="5" />
+                            <ColumnDefinition
+                            Width="*" />
+                            <ColumnDefinition
+                            Width="*" />
+                            <ColumnDefinition
+                            Width="*" />
+                            <ColumnDefinition
+                            Width="*" />
+                            <ColumnDefinition
+                            Width="5" />
+                        </Grid.ColumnDefinitions>
+
+                        <!--  Background image  -->
+                        <Image
+                        Grid.RowSpan="2"
+                        Grid.ColumnSpan="6"
+                        Aspect="AspectFill"
+                        Opacity="0.08"
+                        Source="account.jpg" />
+
+                        <!--  Overview  -->
+                        <StackLayout
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="4"
+                        IsVisible="{Binding Mode, Converter={StaticResource IsParameterConverter}, ConverterParameter=Overview}">
+                            <StackLayout
+                            Orientation="Horizontal"
+                            Margin="10">
+                                <StackLayout>
+                                    <Label
+                                    Text="BALANCE"
+                                    Style="{StaticResource TableRowDetailStyle}"
+                                    Padding="0"/>
+                                    <Label
+                                    Text="{Binding Account.Balance, StringFormat='{}{0:C2}'}"
+                                    Style="{StaticResource TableRowTitleStyle}"
+                                    Padding="0"/>
+                                </StackLayout>
+                                <Button
+                                Command="{Binding SearchToggleCommand}"
+                                FontAttributes="None"
+                                Text="{Binding SearchIcon}"
+                                TextColor="{StaticResource WhiteColor}"
+                                HorizontalOptions="EndAndExpand"
+                                VerticalOptions="Center"
+                                FontFamily="{StaticResource FontAwesomeSolid}"
+                                BackgroundColor="{Binding PrimaryColor }"
+                                BorderWidth="2"         
+                                BorderColor="{Binding SecondaryColor}" />
+                            </StackLayout>
+
+                            <!--  Default overview  -->
+                            <StackLayout
+                            IsVisible="{Binding IsSearching, Converter={StaticResource InverseBoolConverter}}"
+                            Orientation="Horizontal"
+                            Margin="10,0,10,10">
+                                <StackLayout>
+                                    <Label
+                                    Text="ACCOUNT NO."
+                                    Style="{StaticResource TableRowDetailStyle}"
+                                    Padding="0"/>
+                                    <Label
+                                    Style="{StaticResource TableRowTitleStyle}"
+                                    Text="{Binding Account.AccountNumber}"
+                                    TextColor="{StaticResource WhiteColor}"
+                                    Padding="0"/>
+                                </StackLayout>
+                                <Label
+                                    Text=""
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand" />
+                                <StackLayout>
+                                    <Label
+                                    Text="ACCOUNT TYPE"
+                                    Style="{StaticResource TableRowDetailStyle}"
+                                    Padding="0"/>
+                                    <Label
+                                    Style="{StaticResource TableRowTitleStyle}"
+                                    Text="{Binding Account.ProductTypeId, Converter={StaticResource ProductTypeIdConverter}}"
+                                    Padding="0"/>
+                                </StackLayout>
+                            </StackLayout>
+
+                            <!--  Search overview  -->
+                            <StackLayout
+                            IsVisible="{Binding IsSearching}"
+                            Orientation="Horizontal"
+                            Margin="10,0,10,10">
+                                <StackLayout
+                                Padding="0,0,15,0">
+                                    <Label
+                                    Padding="0"
+                                    Text="FROM"
+                                    Style="{StaticResource TableRowDetailStyle}" />
+                                    <controls:BorderlessDatePicker
+                                    x:Name="datePickerFrom"
+                                    Date="{Binding FromDate}"
+                                    FontSize="{StaticResource LargerSize}"
+                                    Format="d MMM yyyy"
+                                    TextColor="{StaticResource WhiteColor}">
+                                        <controls:BorderlessDatePicker.Behaviors>
+                                            <behaviors:EventToCommandBehavior
+                                            Command="{Binding DateSelectedCommand}"
+                                            EventArgsConverter="{StaticResource DateChangedEventArgsConverter}"
+                                            EventName="DateSelected" />
+                                        </controls:BorderlessDatePicker.Behaviors>
+                                    </controls:BorderlessDatePicker>
+                                </StackLayout>
+                                <Label
+                                IsVisible="{Binding IsSearching}"
+                                Text="&#xf061;"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="CenterAndExpand"
+                                FontFamily="{StaticResource FontAwesomeSolid}"
+                                FontSize="{StaticResource HugeSize}" />
+                                <StackLayout
+                                Padding="0,0,0,0">
+                                    <Label
+                                    Padding="0"
+                                    Text="UNTIL"
+                                    Style="{StaticResource TableRowDetailStyle}" />
+                                    <controls:BorderlessDatePicker
+                                    Date="{Binding UntilDate}"
+                                    FontSize="{StaticResource LargerSize}"
+                                    Format="d MMM yyyy"
+                                    MinimumDate="{Binding Source={x:Reference datePickerFrom}, Path=Date}"
+                                    TextColor="{StaticResource WhiteColor}">
+                                        <controls:BorderlessDatePicker.Behaviors>
+                                            <behaviors:EventToCommandBehavior
+                                            Command="{Binding DateSelectedCommand}"
+                                            EventArgsConverter="{StaticResource DateChangedEventArgsConverter}"
+                                            EventName="DateSelected" />
+                                        </controls:BorderlessDatePicker.Behaviors>
+                                    </controls:BorderlessDatePicker>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <!--#region microcharts-->
+                        <!--  This month  -->
+
+                        <microcharts:ChartView
+                        x:Name="chartViewThisMonth"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="4"
+                        HeightRequest="300"
+                        BackgroundColor="Transparent"
+                        Chart="{Binding ThisMonthChart}"
+                        IsVisible="{Binding Mode, Converter={StaticResource IsParameterConverter}, ConverterParameter=ThisMonth}" />
+
+                        <!--Last 6 months-->
+
+                        <microcharts:ChartView
+                        x:Name="chartViewLast6Months"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="4"
+                        HeightRequest="300"
+                        BackgroundColor="Transparent"
+                        Chart="{Binding Last6MonthsChart}"
+                        IsVisible="{Binding Mode, Converter={StaticResource IsParameterConverter}, ConverterParameter=Last6Months}" />
+
+                        <!--Last 12 months-->
+
+                        <microcharts:ChartView
+                        x:Name="chartViewLast12Months"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="4"
+                        HeightRequest="300"
+                        BackgroundColor="Transparent"
+                        Chart="{Binding Last12MonthsChart}"
+                        IsVisible="{Binding Mode, Converter={StaticResource IsParameterConverter}, ConverterParameter=Last12Months}" />
+                        <!--#endregion-->
+
+                        <!--Start Row 1-->
+                        <!--Start Column 0-->
+                        <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Style="{StaticResource TableRowTitleStyle}"
+                        Padding="0,10,0,0"
+                        HorizontalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                    Text="Overview">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                            Command="{Binding SelectModeCommand}">
+                                                <TapGestureRecognizer.CommandParameter>
+                                                    <components:AccountChartMode>Overview</components:AccountChartMode>
+                                                </TapGestureRecognizer.CommandParameter>
+                                            </TapGestureRecognizer>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <BoxView
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HeightRequest="2"
+                        BackgroundColor="White"
+                        IsVisible="{Binding Mode, Converter={StaticResource IsParameterConverter}, ConverterParameter=Overview}"
+                        VerticalOptions="End" />
+                        <!--End Column 0-->
+                        <!--Start Column 1-->
+                        <Label
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Style="{StaticResource TableRowTitleStyle}"
+                        Padding="0,10,0,0"
+                        HorizontalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                    Text="2 Wks">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                            Command="{Binding SelectModeCommand}">
+                                                <TapGestureRecognizer.CommandParameter>
+                                                    <components:AccountChartMode>ThisMonth</components:AccountChartMode>
+                                                </TapGestureRecognizer.CommandParameter>
+                                            </TapGestureRecognizer>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <BoxView
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        HeightRequest="2"
+                        BackgroundColor="White"
+                        IsVisible="{Binding Mode, Converter={StaticResource IsParameterConverter}, ConverterParameter=ThisMonth}"
+                        VerticalOptions="End" />
+                        <!--End Column 1-->
+                        <!--Start Column 2-->
+                        <Label
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        Style="{StaticResource TableRowTitleStyle}"
+                        Padding="0,10,0,0"
+                        HorizontalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                    Text="6 Mths">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                            Command="{Binding SelectModeCommand}">
+                                                <TapGestureRecognizer.CommandParameter>
+                                                    <components:AccountChartMode>Last6Months</components:AccountChartMode>
+                                                </TapGestureRecognizer.CommandParameter>
+                                            </TapGestureRecognizer>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <BoxView
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        HeightRequest="2"
+                        BackgroundColor="White"
+                        IsVisible="{Binding Mode, Converter={StaticResource IsParameterConverter}, ConverterParameter=Last6Months}"
+                        VerticalOptions="End" />
+                        <!--End Column 2-->
+                        <!--Start Column 3-->
+                        <Label
+                        Grid.Row="1"
+                        Grid.Column="4"
+                        Style="{StaticResource TableRowTitleStyle}"
+                        Padding="0,10,0,0"
+                        HorizontalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                    Text="1 Yr">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                            Command="{Binding SelectModeCommand}">
+                                                <TapGestureRecognizer.CommandParameter>
+                                                    <components:AccountChartMode>Last12Months</components:AccountChartMode>
+                                                </TapGestureRecognizer.CommandParameter>
+                                            </TapGestureRecognizer>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <BoxView
+                        Grid.Row="1"
+                        Grid.Column="4"
+                        HeightRequest="2"
+                        BackgroundColor="White"
+                        IsVisible="{Binding Mode, Converter={StaticResource IsParameterConverter}, ConverterParameter=Last12Months}"
+                        VerticalOptions="End" />
+                    </Grid>
+                    <!--End Column 3-->
+                    <!--End Row 1-->
+                </ListView.Header>
+
+                <ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label
+                            Text="{Binding Heading}"
+                            Style="{StaticResource GridRowHeaderStyle}"
+                            Padding="10"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition
+                                    Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition
+                                    Width="*" />
+                                    <ColumnDefinition
+                                    Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackLayout
+                                Grid.Row="0"
+                                Grid.Column="0">
+                                    <Label
+                                    Style="{StaticResource TableRowTitleStyle}"
+                                    TextColor="{StaticResource BlackColor}"
+                                    Text="{Binding Description}"
+                                    Padding="10,5,5,5"/>
+                                    <Label
+                                    Style="{StaticResource TableRowDetailStyle}"
+                                    Text="{Binding ReceiptNumber}"
+                                    Padding="10,5,5,5"/>
+                                </StackLayout>
+                                <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Text="{Binding Amount, StringFormat='{0:C2}'}">
+                                    <Label.Style>
+                                        <Style
+                                        BasedOn="{StaticResource TableRowRightDetailStyle}"
+                                        TargetType="Label">
+                                            <Style.Triggers>
+                                                <DataTrigger
+                                                TargetType="Label"
+                                                Binding="{Binding Credit}"
+                                                Value="false">
+                                                    <Setter
+                                                    Property="TextColor"
+                                                    Value="Red" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Label.Style>
+                                </Label>
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Footer>
+                    <Label
+                    Padding="20"
+                    HorizontalOptions="Center"
+                    IsVisible="{Binding HasTransaction, Converter={StaticResource InverseBoolConverter}}"
+                    Text="No transactions to display for this period."/>
+                </ListView.Footer>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
