@@ -15392,403 +15392,406 @@ namespace InternetBanking.Android.SlieveGullion
 			public const int suggestionRowLayout = 2130903623;
 			
 			// aapt resource value: 0x7F030248
-			public const int switchMinWidth = 2130903624;
+			public const int swipeRefreshLayoutProgressSpinnerBackgroundColor = 2130903624;
 			
 			// aapt resource value: 0x7F030249
-			public const int switchPadding = 2130903625;
+			public const int switchMinWidth = 2130903625;
 			
 			// aapt resource value: 0x7F03024A
-			public const int switchStyle = 2130903626;
+			public const int switchPadding = 2130903626;
 			
 			// aapt resource value: 0x7F03024B
-			public const int switchTextAppearance = 2130903627;
+			public const int switchStyle = 2130903627;
 			
 			// aapt resource value: 0x7F03024C
-			public const int tabBackground = 2130903628;
+			public const int switchTextAppearance = 2130903628;
 			
 			// aapt resource value: 0x7F03024D
-			public const int tabContentStart = 2130903629;
+			public const int tabBackground = 2130903629;
 			
 			// aapt resource value: 0x7F03024E
-			public const int tabGravity = 2130903630;
+			public const int tabContentStart = 2130903630;
 			
 			// aapt resource value: 0x7F03024F
-			public const int tabIconTint = 2130903631;
+			public const int tabGravity = 2130903631;
 			
 			// aapt resource value: 0x7F030250
-			public const int tabIconTintMode = 2130903632;
+			public const int tabIconTint = 2130903632;
 			
 			// aapt resource value: 0x7F030251
-			public const int tabIndicator = 2130903633;
+			public const int tabIconTintMode = 2130903633;
 			
 			// aapt resource value: 0x7F030252
-			public const int tabIndicatorAnimationDuration = 2130903634;
+			public const int tabIndicator = 2130903634;
 			
 			// aapt resource value: 0x7F030253
-			public const int tabIndicatorColor = 2130903635;
+			public const int tabIndicatorAnimationDuration = 2130903635;
 			
 			// aapt resource value: 0x7F030254
-			public const int tabIndicatorFullWidth = 2130903636;
+			public const int tabIndicatorColor = 2130903636;
 			
 			// aapt resource value: 0x7F030255
-			public const int tabIndicatorGravity = 2130903637;
+			public const int tabIndicatorFullWidth = 2130903637;
 			
 			// aapt resource value: 0x7F030256
-			public const int tabIndicatorHeight = 2130903638;
+			public const int tabIndicatorGravity = 2130903638;
 			
 			// aapt resource value: 0x7F030257
-			public const int tabInlineLabel = 2130903639;
+			public const int tabIndicatorHeight = 2130903639;
 			
 			// aapt resource value: 0x7F030258
-			public const int tabMaxWidth = 2130903640;
+			public const int tabInlineLabel = 2130903640;
 			
 			// aapt resource value: 0x7F030259
-			public const int tabMinWidth = 2130903641;
+			public const int tabMaxWidth = 2130903641;
 			
 			// aapt resource value: 0x7F03025A
-			public const int tabMode = 2130903642;
+			public const int tabMinWidth = 2130903642;
 			
 			// aapt resource value: 0x7F03025B
-			public const int tabPadding = 2130903643;
+			public const int tabMode = 2130903643;
 			
 			// aapt resource value: 0x7F03025C
-			public const int tabPaddingBottom = 2130903644;
+			public const int tabPadding = 2130903644;
 			
 			// aapt resource value: 0x7F03025D
-			public const int tabPaddingEnd = 2130903645;
+			public const int tabPaddingBottom = 2130903645;
 			
 			// aapt resource value: 0x7F03025E
-			public const int tabPaddingStart = 2130903646;
+			public const int tabPaddingEnd = 2130903646;
 			
 			// aapt resource value: 0x7F03025F
-			public const int tabPaddingTop = 2130903647;
+			public const int tabPaddingStart = 2130903647;
 			
 			// aapt resource value: 0x7F030260
-			public const int tabRippleColor = 2130903648;
+			public const int tabPaddingTop = 2130903648;
 			
 			// aapt resource value: 0x7F030261
-			public const int tabSelectedTextColor = 2130903649;
+			public const int tabRippleColor = 2130903649;
 			
 			// aapt resource value: 0x7F030262
-			public const int tabStyle = 2130903650;
+			public const int tabSelectedTextColor = 2130903650;
 			
 			// aapt resource value: 0x7F030263
-			public const int tabTextAppearance = 2130903651;
+			public const int tabStyle = 2130903651;
 			
 			// aapt resource value: 0x7F030264
-			public const int tabTextColor = 2130903652;
+			public const int tabTextAppearance = 2130903652;
 			
 			// aapt resource value: 0x7F030265
-			public const int tabUnboundedRipple = 2130903653;
+			public const int tabTextColor = 2130903653;
 			
 			// aapt resource value: 0x7F030266
-			public const int textAllCaps = 2130903654;
+			public const int tabUnboundedRipple = 2130903654;
 			
 			// aapt resource value: 0x7F030267
-			public const int textAppearanceBody1 = 2130903655;
+			public const int textAllCaps = 2130903655;
 			
 			// aapt resource value: 0x7F030268
-			public const int textAppearanceBody2 = 2130903656;
+			public const int textAppearanceBody1 = 2130903656;
 			
 			// aapt resource value: 0x7F030269
-			public const int textAppearanceButton = 2130903657;
+			public const int textAppearanceBody2 = 2130903657;
 			
 			// aapt resource value: 0x7F03026A
-			public const int textAppearanceCaption = 2130903658;
+			public const int textAppearanceButton = 2130903658;
 			
 			// aapt resource value: 0x7F03026B
-			public const int textAppearanceHeadline1 = 2130903659;
+			public const int textAppearanceCaption = 2130903659;
 			
 			// aapt resource value: 0x7F03026C
-			public const int textAppearanceHeadline2 = 2130903660;
+			public const int textAppearanceHeadline1 = 2130903660;
 			
 			// aapt resource value: 0x7F03026D
-			public const int textAppearanceHeadline3 = 2130903661;
+			public const int textAppearanceHeadline2 = 2130903661;
 			
 			// aapt resource value: 0x7F03026E
-			public const int textAppearanceHeadline4 = 2130903662;
+			public const int textAppearanceHeadline3 = 2130903662;
 			
 			// aapt resource value: 0x7F03026F
-			public const int textAppearanceHeadline5 = 2130903663;
+			public const int textAppearanceHeadline4 = 2130903663;
 			
 			// aapt resource value: 0x7F030270
-			public const int textAppearanceHeadline6 = 2130903664;
+			public const int textAppearanceHeadline5 = 2130903664;
 			
 			// aapt resource value: 0x7F030271
-			public const int textAppearanceLargePopupMenu = 2130903665;
+			public const int textAppearanceHeadline6 = 2130903665;
 			
 			// aapt resource value: 0x7F030272
-			public const int textAppearanceLineHeightEnabled = 2130903666;
+			public const int textAppearanceLargePopupMenu = 2130903666;
 			
 			// aapt resource value: 0x7F030273
-			public const int textAppearanceListItem = 2130903667;
+			public const int textAppearanceLineHeightEnabled = 2130903667;
 			
 			// aapt resource value: 0x7F030274
-			public const int textAppearanceListItemSecondary = 2130903668;
+			public const int textAppearanceListItem = 2130903668;
 			
 			// aapt resource value: 0x7F030275
-			public const int textAppearanceListItemSmall = 2130903669;
+			public const int textAppearanceListItemSecondary = 2130903669;
 			
 			// aapt resource value: 0x7F030276
-			public const int textAppearanceOverline = 2130903670;
+			public const int textAppearanceListItemSmall = 2130903670;
 			
 			// aapt resource value: 0x7F030277
-			public const int textAppearancePopupMenuHeader = 2130903671;
+			public const int textAppearanceOverline = 2130903671;
 			
 			// aapt resource value: 0x7F030278
-			public const int textAppearanceSearchResultSubtitle = 2130903672;
+			public const int textAppearancePopupMenuHeader = 2130903672;
 			
 			// aapt resource value: 0x7F030279
-			public const int textAppearanceSearchResultTitle = 2130903673;
+			public const int textAppearanceSearchResultSubtitle = 2130903673;
 			
 			// aapt resource value: 0x7F03027A
-			public const int textAppearanceSmallPopupMenu = 2130903674;
+			public const int textAppearanceSearchResultTitle = 2130903674;
 			
 			// aapt resource value: 0x7F03027B
-			public const int textAppearanceSubtitle1 = 2130903675;
+			public const int textAppearanceSmallPopupMenu = 2130903675;
 			
 			// aapt resource value: 0x7F03027C
-			public const int textAppearanceSubtitle2 = 2130903676;
+			public const int textAppearanceSubtitle1 = 2130903676;
 			
 			// aapt resource value: 0x7F03027D
-			public const int textColorAlertDialogListItem = 2130903677;
+			public const int textAppearanceSubtitle2 = 2130903677;
 			
 			// aapt resource value: 0x7F03027E
-			public const int textColorSearchUrl = 2130903678;
+			public const int textColorAlertDialogListItem = 2130903678;
 			
 			// aapt resource value: 0x7F03027F
-			public const int textEndPadding = 2130903679;
+			public const int textColorSearchUrl = 2130903679;
 			
 			// aapt resource value: 0x7F030280
-			public const int textInputLayoutFocusedRectEnabled = 2130903680;
+			public const int textEndPadding = 2130903680;
 			
 			// aapt resource value: 0x7F030281
-			public const int textInputStyle = 2130903681;
+			public const int textInputLayoutFocusedRectEnabled = 2130903681;
 			
 			// aapt resource value: 0x7F030282
-			public const int textLocale = 2130903682;
+			public const int textInputStyle = 2130903682;
 			
 			// aapt resource value: 0x7F030283
-			public const int textStartPadding = 2130903683;
+			public const int textLocale = 2130903683;
 			
 			// aapt resource value: 0x7F030284
-			public const int theme = 2130903684;
+			public const int textStartPadding = 2130903684;
 			
 			// aapt resource value: 0x7F030285
-			public const int themeLineHeight = 2130903685;
+			public const int theme = 2130903685;
 			
 			// aapt resource value: 0x7F030286
-			public const int thickness = 2130903686;
+			public const int themeLineHeight = 2130903686;
 			
 			// aapt resource value: 0x7F030287
-			public const int thumbColor = 2130903687;
+			public const int thickness = 2130903687;
 			
 			// aapt resource value: 0x7F030288
-			public const int thumbElevation = 2130903688;
+			public const int thumbColor = 2130903688;
 			
 			// aapt resource value: 0x7F030289
-			public const int thumbRadius = 2130903689;
+			public const int thumbElevation = 2130903689;
 			
 			// aapt resource value: 0x7F03028A
-			public const int thumbTextPadding = 2130903690;
+			public const int thumbRadius = 2130903690;
 			
 			// aapt resource value: 0x7F03028B
-			public const int thumbTint = 2130903691;
+			public const int thumbTextPadding = 2130903691;
 			
 			// aapt resource value: 0x7F03028C
-			public const int thumbTintMode = 2130903692;
+			public const int thumbTint = 2130903692;
 			
 			// aapt resource value: 0x7F03028D
-			public const int tickColor = 2130903693;
+			public const int thumbTintMode = 2130903693;
 			
 			// aapt resource value: 0x7F03028E
-			public const int tickColorActive = 2130903694;
+			public const int tickColor = 2130903694;
 			
 			// aapt resource value: 0x7F03028F
-			public const int tickColorInactive = 2130903695;
+			public const int tickColorActive = 2130903695;
 			
 			// aapt resource value: 0x7F030290
-			public const int tickMark = 2130903696;
+			public const int tickColorInactive = 2130903696;
 			
 			// aapt resource value: 0x7F030291
-			public const int tickMarkTint = 2130903697;
+			public const int tickMark = 2130903697;
 			
 			// aapt resource value: 0x7F030292
-			public const int tickMarkTintMode = 2130903698;
+			public const int tickMarkTint = 2130903698;
 			
 			// aapt resource value: 0x7F030293
-			public const int tint = 2130903699;
+			public const int tickMarkTintMode = 2130903699;
 			
 			// aapt resource value: 0x7F030294
-			public const int tintMode = 2130903700;
+			public const int tint = 2130903700;
 			
 			// aapt resource value: 0x7F030295
-			public const int title = 2130903701;
+			public const int tintMode = 2130903701;
 			
 			// aapt resource value: 0x7F030296
-			public const int titleEnabled = 2130903702;
+			public const int title = 2130903702;
 			
 			// aapt resource value: 0x7F030297
-			public const int titleMargin = 2130903703;
+			public const int titleEnabled = 2130903703;
 			
 			// aapt resource value: 0x7F030298
-			public const int titleMarginBottom = 2130903704;
+			public const int titleMargin = 2130903704;
 			
 			// aapt resource value: 0x7F030299
-			public const int titleMarginEnd = 2130903705;
-			
-			// aapt resource value: 0x7F03029C
-			public const int titleMargins = 2130903708;
+			public const int titleMarginBottom = 2130903705;
 			
 			// aapt resource value: 0x7F03029A
-			public const int titleMarginStart = 2130903706;
-			
-			// aapt resource value: 0x7F03029B
-			public const int titleMarginTop = 2130903707;
+			public const int titleMarginEnd = 2130903706;
 			
 			// aapt resource value: 0x7F03029D
-			public const int titleTextAppearance = 2130903709;
+			public const int titleMargins = 2130903709;
+			
+			// aapt resource value: 0x7F03029B
+			public const int titleMarginStart = 2130903707;
+			
+			// aapt resource value: 0x7F03029C
+			public const int titleMarginTop = 2130903708;
 			
 			// aapt resource value: 0x7F03029E
-			public const int titleTextColor = 2130903710;
+			public const int titleTextAppearance = 2130903710;
 			
 			// aapt resource value: 0x7F03029F
-			public const int titleTextStyle = 2130903711;
+			public const int titleTextColor = 2130903711;
 			
 			// aapt resource value: 0x7F0302A0
-			public const int toolbarId = 2130903712;
+			public const int titleTextStyle = 2130903712;
 			
 			// aapt resource value: 0x7F0302A1
-			public const int toolbarNavigationButtonStyle = 2130903713;
+			public const int toolbarId = 2130903713;
 			
 			// aapt resource value: 0x7F0302A2
-			public const int toolbarStyle = 2130903714;
+			public const int toolbarNavigationButtonStyle = 2130903714;
 			
 			// aapt resource value: 0x7F0302A3
-			public const int tooltipForegroundColor = 2130903715;
+			public const int toolbarStyle = 2130903715;
 			
 			// aapt resource value: 0x7F0302A4
-			public const int tooltipFrameBackground = 2130903716;
+			public const int tooltipForegroundColor = 2130903716;
 			
 			// aapt resource value: 0x7F0302A5
-			public const int tooltipStyle = 2130903717;
+			public const int tooltipFrameBackground = 2130903717;
 			
 			// aapt resource value: 0x7F0302A6
-			public const int tooltipText = 2130903718;
+			public const int tooltipStyle = 2130903718;
 			
 			// aapt resource value: 0x7F0302A7
-			public const int track = 2130903719;
+			public const int tooltipText = 2130903719;
 			
 			// aapt resource value: 0x7F0302A8
-			public const int trackColor = 2130903720;
+			public const int track = 2130903720;
 			
 			// aapt resource value: 0x7F0302A9
-			public const int trackColorActive = 2130903721;
+			public const int trackColor = 2130903721;
 			
 			// aapt resource value: 0x7F0302AA
-			public const int trackColorInactive = 2130903722;
+			public const int trackColorActive = 2130903722;
 			
 			// aapt resource value: 0x7F0302AB
-			public const int trackHeight = 2130903723;
+			public const int trackColorInactive = 2130903723;
 			
 			// aapt resource value: 0x7F0302AC
-			public const int trackTint = 2130903724;
+			public const int trackHeight = 2130903724;
 			
 			// aapt resource value: 0x7F0302AD
-			public const int trackTintMode = 2130903725;
+			public const int trackTint = 2130903725;
 			
 			// aapt resource value: 0x7F0302AE
-			public const int transitionShapeAppearance = 2130903726;
+			public const int trackTintMode = 2130903726;
 			
 			// aapt resource value: 0x7F0302AF
-			public const int ttcIndex = 2130903727;
+			public const int transitionShapeAppearance = 2130903727;
 			
 			// aapt resource value: 0x7F0302B0
-			public const int uiCompass = 2130903728;
+			public const int ttcIndex = 2130903728;
 			
 			// aapt resource value: 0x7F0302B1
-			public const int uiMapToolbar = 2130903729;
+			public const int uiCompass = 2130903729;
 			
 			// aapt resource value: 0x7F0302B2
-			public const int uiRotateGestures = 2130903730;
+			public const int uiMapToolbar = 2130903730;
 			
 			// aapt resource value: 0x7F0302B3
-			public const int uiScrollGestures = 2130903731;
+			public const int uiRotateGestures = 2130903731;
 			
 			// aapt resource value: 0x7F0302B4
-			public const int uiScrollGesturesDuringRotateOrZoom = 2130903732;
+			public const int uiScrollGestures = 2130903732;
 			
 			// aapt resource value: 0x7F0302B5
-			public const int uiTiltGestures = 2130903733;
+			public const int uiScrollGesturesDuringRotateOrZoom = 2130903733;
 			
 			// aapt resource value: 0x7F0302B6
-			public const int uiZoomControls = 2130903734;
+			public const int uiTiltGestures = 2130903734;
 			
 			// aapt resource value: 0x7F0302B7
-			public const int uiZoomGestures = 2130903735;
+			public const int uiZoomControls = 2130903735;
 			
 			// aapt resource value: 0x7F0302B8
-			public const int useCompatPadding = 2130903736;
+			public const int uiZoomGestures = 2130903736;
 			
 			// aapt resource value: 0x7F0302B9
-			public const int useMaterialThemeColors = 2130903737;
+			public const int useCompatPadding = 2130903737;
 			
 			// aapt resource value: 0x7F0302BA
-			public const int useViewLifecycle = 2130903738;
+			public const int useMaterialThemeColors = 2130903738;
 			
 			// aapt resource value: 0x7F0302BB
-			public const int values = 2130903739;
+			public const int useViewLifecycle = 2130903739;
 			
 			// aapt resource value: 0x7F0302BC
-			public const int verticalOffset = 2130903740;
+			public const int values = 2130903740;
 			
 			// aapt resource value: 0x7F0302BD
-			public const int viewInflaterClass = 2130903741;
+			public const int verticalOffset = 2130903741;
 			
 			// aapt resource value: 0x7F0302BE
-			public const int voiceIcon = 2130903742;
+			public const int viewInflaterClass = 2130903742;
 			
 			// aapt resource value: 0x7F0302BF
-			public const int windowActionBar = 2130903743;
+			public const int voiceIcon = 2130903743;
 			
 			// aapt resource value: 0x7F0302C0
-			public const int windowActionBarOverlay = 2130903744;
+			public const int windowActionBar = 2130903744;
 			
 			// aapt resource value: 0x7F0302C1
-			public const int windowActionModeOverlay = 2130903745;
+			public const int windowActionBarOverlay = 2130903745;
 			
 			// aapt resource value: 0x7F0302C2
-			public const int windowFixedHeightMajor = 2130903746;
+			public const int windowActionModeOverlay = 2130903746;
 			
 			// aapt resource value: 0x7F0302C3
-			public const int windowFixedHeightMinor = 2130903747;
+			public const int windowFixedHeightMajor = 2130903747;
 			
 			// aapt resource value: 0x7F0302C4
-			public const int windowFixedWidthMajor = 2130903748;
+			public const int windowFixedHeightMinor = 2130903748;
 			
 			// aapt resource value: 0x7F0302C5
-			public const int windowFixedWidthMinor = 2130903749;
+			public const int windowFixedWidthMajor = 2130903749;
 			
 			// aapt resource value: 0x7F0302C6
-			public const int windowMinWidthMajor = 2130903750;
+			public const int windowFixedWidthMinor = 2130903750;
 			
 			// aapt resource value: 0x7F0302C7
-			public const int windowMinWidthMinor = 2130903751;
+			public const int windowMinWidthMajor = 2130903751;
 			
 			// aapt resource value: 0x7F0302C8
-			public const int windowNoTitle = 2130903752;
+			public const int windowMinWidthMinor = 2130903752;
 			
 			// aapt resource value: 0x7F0302C9
-			public const int yearSelectedStyle = 2130903753;
+			public const int windowNoTitle = 2130903753;
 			
 			// aapt resource value: 0x7F0302CA
-			public const int yearStyle = 2130903754;
+			public const int yearSelectedStyle = 2130903754;
 			
 			// aapt resource value: 0x7F0302CB
-			public const int yearTodayStyle = 2130903755;
+			public const int yearStyle = 2130903755;
 			
 			// aapt resource value: 0x7F0302CC
-			public const int zOrderOnTop = 2130903756;
+			public const int yearTodayStyle = 2130903756;
+			
+			// aapt resource value: 0x7F0302CD
+			public const int zOrderOnTop = 2130903757;
 			
 			static Attribute()
 			{
@@ -23322,7 +23325,7 @@ namespace InternetBanking.Android.SlieveGullion
 		public partial class Styleable
 		{
 			
-			// aapt resource value: { 0x7F030041,0x7F030048,0x7F030049,0x7F0300CC,0x7F0300CD,0x7F0300CE,0x7F0300CF,0x7F0300D0,0x7F0300D1,0x7F0300EB,0x7F0300F4,0x7F0300F5,0x7F030109,0x7F030149,0x7F03014F,0x7F030155,0x7F030156,0x7F030159,0x7F030165,0x7F030172,0x7F0301AB,0x7F0301DD,0x7F0301F6,0x7F0301FD,0x7F0301FE,0x7F030240,0x7F030243,0x7F030295,0x7F03029F }
+			// aapt resource value: { 0x7F030041,0x7F030048,0x7F030049,0x7F0300CC,0x7F0300CD,0x7F0300CE,0x7F0300CF,0x7F0300D0,0x7F0300D1,0x7F0300EB,0x7F0300F4,0x7F0300F5,0x7F030109,0x7F030149,0x7F03014F,0x7F030155,0x7F030156,0x7F030159,0x7F030165,0x7F030172,0x7F0301AB,0x7F0301DD,0x7F0301F6,0x7F0301FD,0x7F0301FE,0x7F030240,0x7F030243,0x7F030296,0x7F0302A0 }
 			public static int[] ActionBar = new int[] {
 					2130903105,
 					2130903112,
@@ -23351,8 +23354,8 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903550,
 					2130903616,
 					2130903619,
-					2130903701,
-					2130903711};
+					2130903702,
+					2130903712};
 			
 			// aapt resource value: { 0x10100B3 }
 			public static int[] ActionBarLayout = new int[] {
@@ -23459,14 +23462,14 @@ namespace InternetBanking.Android.SlieveGullion
 			public static int[] ActionMenuView = new int[] {
 					-1};
 			
-			// aapt resource value: { 0x7F030041,0x7F030048,0x7F0300AD,0x7F030149,0x7F030243,0x7F03029F }
+			// aapt resource value: { 0x7F030041,0x7F030048,0x7F0300AD,0x7F030149,0x7F030243,0x7F0302A0 }
 			public static int[] ActionMode = new int[] {
 					2130903105,
 					2130903112,
 					2130903213,
 					2130903369,
 					2130903619,
-					2130903711};
+					2130903712};
 			
 			// aapt resource value: 0
 			public const int ActionMode_background = 0;
@@ -23654,12 +23657,12 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 7
 			public const int AppBarLayout_statusBarForeground = 7;
 			
-			// aapt resource value: { 0x1010119,0x7F03022C,0x7F030293,0x7F030294 }
+			// aapt resource value: { 0x1010119,0x7F03022C,0x7F030294,0x7F030295 }
 			public static int[] AppCompatImageView = new int[] {
 					16843033,
 					2130903596,
-					2130903699,
-					2130903700};
+					2130903700,
+					2130903701};
 			
 			// aapt resource value: 0
 			public const int AppCompatImageView_android_src = 0;
@@ -23673,12 +23676,12 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 3
 			public const int AppCompatImageView_tintMode = 3;
 			
-			// aapt resource value: { 0x1010142,0x7F030290,0x7F030291,0x7F030292 }
+			// aapt resource value: { 0x1010142,0x7F030291,0x7F030292,0x7F030293 }
 			public static int[] AppCompatSeekBar = new int[] {
 					16843074,
-					2130903696,
 					2130903697,
-					2130903698};
+					2130903698,
+					2130903699};
 			
 			// aapt resource value: 0
 			public const int AppCompatSeekBar_android_thumb = 0;
@@ -23723,7 +23726,7 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 0
 			public const int AppCompatTextHelper_android_textAppearance = 0;
 			
-			// aapt resource value: { 0x1010034,0x7F03003C,0x7F03003D,0x7F03003E,0x7F03003F,0x7F030040,0x7F0300F9,0x7F0300FA,0x7F0300FB,0x7F0300FC,0x7F0300FE,0x7F0300FF,0x7F030100,0x7F030101,0x7F030135,0x7F030138,0x7F030140,0x7F030186,0x7F030199,0x7F030266,0x7F030282 }
+			// aapt resource value: { 0x1010034,0x7F03003C,0x7F03003D,0x7F03003E,0x7F03003F,0x7F030040,0x7F0300F9,0x7F0300FA,0x7F0300FB,0x7F0300FC,0x7F0300FE,0x7F0300FF,0x7F030100,0x7F030101,0x7F030135,0x7F030138,0x7F030140,0x7F030186,0x7F030199,0x7F030267,0x7F030283 }
 			public static int[] AppCompatTextView = new int[] {
 					16842804,
 					2130903100,
@@ -23744,8 +23747,8 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903360,
 					2130903430,
 					2130903449,
-					2130903654,
-					2130903682};
+					2130903655,
+					2130903683};
 			
 			// aapt resource value: 0
 			public const int AppCompatTextView_android_textAppearance = 0;
@@ -23810,7 +23813,7 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 20
 			public const int AppCompatTextView_textLocale = 20;
 			
-			// aapt resource value: { 0x1010057,0x10100AE,0x7F030000,0x7F030001,0x7F030002,0x7F030003,0x7F030004,0x7F030005,0x7F030006,0x7F030007,0x7F030008,0x7F030009,0x7F03000A,0x7F03000B,0x7F03000C,0x7F03000E,0x7F03000F,0x7F030010,0x7F030011,0x7F030012,0x7F030013,0x7F030014,0x7F030015,0x7F030016,0x7F030017,0x7F030018,0x7F030019,0x7F03001A,0x7F03001B,0x7F03001C,0x7F03001D,0x7F03001E,0x7F030022,0x7F03002F,0x7F030030,0x7F030031,0x7F030032,0x7F03003B,0x7F03005C,0x7F03006C,0x7F03006D,0x7F03006E,0x7F03006F,0x7F030070,0x7F030076,0x7F030077,0x7F030089,0x7F030090,0x7F0300B4,0x7F0300B5,0x7F0300B6,0x7F0300B7,0x7F0300B8,0x7F0300B9,0x7F0300BA,0x7F0300C1,0x7F0300C2,0x7F0300C9,0x7F0300D8,0x7F0300F1,0x7F0300F2,0x7F0300F3,0x7F0300F6,0x7F0300F8,0x7F030104,0x7F030105,0x7F030106,0x7F030107,0x7F030108,0x7F030155,0x7F030164,0x7F03019B,0x7F03019C,0x7F03019D,0x7F03019E,0x7F0301A1,0x7F0301A2,0x7F0301A3,0x7F0301A4,0x7F0301A5,0x7F0301A6,0x7F0301A7,0x7F0301A8,0x7F0301A9,0x7F0301E9,0x7F0301EA,0x7F0301EB,0x7F0301F5,0x7F0301F7,0x7F030201,0x7F030203,0x7F030204,0x7F030205,0x7F030210,0x7F030211,0x7F030212,0x7F030213,0x7F030229,0x7F03022A,0x7F03024A,0x7F030271,0x7F030273,0x7F030274,0x7F030275,0x7F030277,0x7F030278,0x7F030279,0x7F03027A,0x7F03027D,0x7F03027E,0x7F0302A1,0x7F0302A2,0x7F0302A3,0x7F0302A4,0x7F0302BD,0x7F0302BF,0x7F0302C0,0x7F0302C1,0x7F0302C2,0x7F0302C3,0x7F0302C4,0x7F0302C5,0x7F0302C6,0x7F0302C7,0x7F0302C8 }
+			// aapt resource value: { 0x1010057,0x10100AE,0x7F030000,0x7F030001,0x7F030002,0x7F030003,0x7F030004,0x7F030005,0x7F030006,0x7F030007,0x7F030008,0x7F030009,0x7F03000A,0x7F03000B,0x7F03000C,0x7F03000E,0x7F03000F,0x7F030010,0x7F030011,0x7F030012,0x7F030013,0x7F030014,0x7F030015,0x7F030016,0x7F030017,0x7F030018,0x7F030019,0x7F03001A,0x7F03001B,0x7F03001C,0x7F03001D,0x7F03001E,0x7F030022,0x7F03002F,0x7F030030,0x7F030031,0x7F030032,0x7F03003B,0x7F03005C,0x7F03006C,0x7F03006D,0x7F03006E,0x7F03006F,0x7F030070,0x7F030076,0x7F030077,0x7F030089,0x7F030090,0x7F0300B4,0x7F0300B5,0x7F0300B6,0x7F0300B7,0x7F0300B8,0x7F0300B9,0x7F0300BA,0x7F0300C1,0x7F0300C2,0x7F0300C9,0x7F0300D8,0x7F0300F1,0x7F0300F2,0x7F0300F3,0x7F0300F6,0x7F0300F8,0x7F030104,0x7F030105,0x7F030106,0x7F030107,0x7F030108,0x7F030155,0x7F030164,0x7F03019B,0x7F03019C,0x7F03019D,0x7F03019E,0x7F0301A1,0x7F0301A2,0x7F0301A3,0x7F0301A4,0x7F0301A5,0x7F0301A6,0x7F0301A7,0x7F0301A8,0x7F0301A9,0x7F0301E9,0x7F0301EA,0x7F0301EB,0x7F0301F5,0x7F0301F7,0x7F030201,0x7F030203,0x7F030204,0x7F030205,0x7F030210,0x7F030211,0x7F030212,0x7F030213,0x7F030229,0x7F03022A,0x7F03024B,0x7F030272,0x7F030274,0x7F030275,0x7F030276,0x7F030278,0x7F030279,0x7F03027A,0x7F03027B,0x7F03027E,0x7F03027F,0x7F0302A2,0x7F0302A3,0x7F0302A4,0x7F0302A5,0x7F0302BE,0x7F0302C0,0x7F0302C1,0x7F0302C2,0x7F0302C3,0x7F0302C4,0x7F0302C5,0x7F0302C6,0x7F0302C7,0x7F0302C8,0x7F0302C9 }
 			public static int[] AppCompatTheme = new int[] {
 					16842839,
 					16842926,
@@ -23911,23 +23914,22 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903571,
 					2130903593,
 					2130903594,
-					2130903626,
-					2130903665,
-					2130903667,
+					2130903627,
+					2130903666,
 					2130903668,
 					2130903669,
-					2130903671,
+					2130903670,
 					2130903672,
 					2130903673,
 					2130903674,
-					2130903677,
+					2130903675,
 					2130903678,
-					2130903713,
+					2130903679,
 					2130903714,
 					2130903715,
 					2130903716,
-					2130903741,
-					2130903743,
+					2130903717,
+					2130903742,
 					2130903744,
 					2130903745,
 					2130903746,
@@ -23936,7 +23938,8 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903749,
 					2130903750,
 					2130903751,
-					2130903752};
+					2130903752,
+					2130903753};
 			
 			// aapt resource value: 2
 			public const int AppCompatTheme_actionBarDivider = 2;
@@ -24313,7 +24316,7 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 124
 			public const int AppCompatTheme_windowNoTitle = 124;
 			
-			// aapt resource value: { 0x7F030042,0x7F03004C,0x7F03004E,0x7F030157,0x7F0301C4,0x7F0301DF,0x7F0302BC }
+			// aapt resource value: { 0x7F030042,0x7F03004C,0x7F03004E,0x7F030157,0x7F0301C4,0x7F0301DF,0x7F0302BD }
 			public static int[] Badge = new int[] {
 					2130903106,
 					2130903116,
@@ -24321,7 +24324,7 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903383,
 					2130903492,
 					2130903519,
-					2130903740};
+					2130903741};
 			
 			// aapt resource value: 0
 			public const int Badge_backgroundColor = 0;
@@ -24559,7 +24562,7 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 12
 			public const int CardView_contentPaddingTop = 12;
 			
-			// aapt resource value: { 0x1010034,0x1010098,0x10100AB,0x101011F,0x101014F,0x10101E5,0x7F03008C,0x7F03008D,0x7F03008E,0x7F03008F,0x7F030091,0x7F030092,0x7F030093,0x7F030095,0x7F030096,0x7F030097,0x7F030098,0x7F030099,0x7F03009A,0x7F03009B,0x7F0300A0,0x7F0300A1,0x7F0300A2,0x7F0300A4,0x7F0300A6,0x7F0300A7,0x7F0300A8,0x7F0300A9,0x7F0300AA,0x7F0300AB,0x7F0300AC,0x7F030114,0x7F03014E,0x7F03015A,0x7F03015E,0x7F030208,0x7F030215,0x7F030218,0x7F03021C,0x7F03027F,0x7F030283 }
+			// aapt resource value: { 0x1010034,0x1010098,0x10100AB,0x101011F,0x101014F,0x10101E5,0x7F03008C,0x7F03008D,0x7F03008E,0x7F03008F,0x7F030091,0x7F030092,0x7F030093,0x7F030095,0x7F030096,0x7F030097,0x7F030098,0x7F030099,0x7F03009A,0x7F03009B,0x7F0300A0,0x7F0300A1,0x7F0300A2,0x7F0300A4,0x7F0300A6,0x7F0300A7,0x7F0300A8,0x7F0300A9,0x7F0300AA,0x7F0300AB,0x7F0300AC,0x7F030114,0x7F03014E,0x7F03015A,0x7F03015E,0x7F030208,0x7F030215,0x7F030218,0x7F03021C,0x7F030280,0x7F030284 }
 			public static int[] Chip = new int[] {
 					16842804,
 					16842904,
@@ -24600,8 +24603,8 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903573,
 					2130903576,
 					2130903580,
-					2130903679,
-					2130903683};
+					2130903680,
+					2130903684};
 			
 			// aapt resource value: { 0x7F03008B,0x7F03009C,0x7F03009D,0x7F03009E,0x7F030214,0x7F030221,0x7F030222 }
 			public static int[] ChipGroup = new int[] {
@@ -24757,7 +24760,7 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 40
 			public const int Chip_textStartPadding = 40;
 			
-			// aapt resource value: { 0x7F0300B0,0x7F0300B1,0x7F0300D7,0x7F03011E,0x7F03011F,0x7F030120,0x7F030121,0x7F030122,0x7F030123,0x7F030124,0x7F0301C6,0x7F03020A,0x7F03020C,0x7F03023B,0x7F030295,0x7F030296,0x7F0302A0 }
+			// aapt resource value: { 0x7F0300B0,0x7F0300B1,0x7F0300D7,0x7F03011E,0x7F03011F,0x7F030120,0x7F030121,0x7F030122,0x7F030123,0x7F030124,0x7F0301C6,0x7F03020A,0x7F03020C,0x7F03023B,0x7F030296,0x7F030297,0x7F0302A1 }
 			public static int[] CollapsingToolbarLayout = new int[] {
 					2130903216,
 					2130903217,
@@ -24773,9 +24776,9 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903562,
 					2130903564,
 					2130903611,
-					2130903701,
 					2130903702,
-					2130903712};
+					2130903703,
+					2130903713};
 			
 			// aapt resource value: 0
 			public const int CollapsingToolbarLayout_collapsedTitleGravity = 0;
@@ -24915,7 +24918,7 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 1
 			public const int CoordinatorLayout_statusBarBackground = 1;
 			
-			// aapt resource value: { 0x7F030039,0x7F03003A,0x7F03004F,0x7F0300B3,0x7F0300FD,0x7F030143,0x7F030228,0x7F030286 }
+			// aapt resource value: { 0x7F030039,0x7F03003A,0x7F03004F,0x7F0300B3,0x7F0300FD,0x7F030143,0x7F030228,0x7F030287 }
 			public static int[] DrawerArrowToggle = new int[] {
 					2130903097,
 					2130903098,
@@ -24924,7 +24927,7 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903293,
 					2130903363,
 					2130903592,
-					2130903686};
+					2130903687};
 			
 			// aapt resource value: 0
 			public const int DrawerArrowToggle_arrowHeadLength = 0;
@@ -24991,7 +24994,7 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 4
 			public const int ExtendedFloatingActionButton_shrinkMotionSpec = 4;
 			
-			// aapt resource value: { 0x101000E,0x7F03004A,0x7F03004B,0x7F03005B,0x7F030109,0x7F030114,0x7F03012E,0x7F03012F,0x7F03014E,0x7F030158,0x7F0301C5,0x7F0301FC,0x7F030208,0x7F030215,0x7F030218,0x7F03021C,0x7F0302B8 }
+			// aapt resource value: { 0x101000E,0x7F03004A,0x7F03004B,0x7F03005B,0x7F030109,0x7F030114,0x7F03012E,0x7F03012F,0x7F03014E,0x7F030158,0x7F0301C5,0x7F0301FC,0x7F030208,0x7F030215,0x7F030218,0x7F03021C,0x7F0302B9 }
 			public static int[] FloatingActionButton = new int[] {
 					16842766,
 					2130903114,
@@ -25009,7 +25012,7 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903573,
 					2130903576,
 					2130903580,
-					2130903736};
+					2130903737};
 			
 			// aapt resource value: 0
 			public const int FloatingActionButton_android_enabled = 0;
@@ -25089,7 +25092,7 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903357,
 					2130903358};
 			
-			// aapt resource value: { 0x1010532,0x1010533,0x101053F,0x101056F,0x1010570,0x7F030137,0x7F03013F,0x7F030140,0x7F030141,0x7F0302AF }
+			// aapt resource value: { 0x1010532,0x1010533,0x101053F,0x101056F,0x1010570,0x7F030137,0x7F03013F,0x7F030140,0x7F030141,0x7F0302B0 }
 			public static int[] FontFamilyFont = new int[] {
 					16844082,
 					16844083,
@@ -25100,7 +25103,7 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903359,
 					2130903360,
 					2130903361,
-					2130903727};
+					2130903728};
 			
 			// aapt resource value: 0
 			public const int FontFamilyFont_android_font = 0;
@@ -25359,7 +25362,7 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 2
 			public const int LoadingImageView_imageAspectRatioAdjust = 2;
 			
-			// aapt resource value: { 0x7F030036,0x7F03007A,0x7F03007B,0x7F03007C,0x7F03007D,0x7F03007E,0x7F03007F,0x7F030080,0x7F030187,0x7F030188,0x7F030189,0x7F03018A,0x7F0301AA,0x7F0301AD,0x7F0302B0,0x7F0302B1,0x7F0302B2,0x7F0302B3,0x7F0302B4,0x7F0302B5,0x7F0302B6,0x7F0302B7,0x7F0302BA,0x7F0302CC }
+			// aapt resource value: { 0x7F030036,0x7F03007A,0x7F03007B,0x7F03007C,0x7F03007D,0x7F03007E,0x7F03007F,0x7F030080,0x7F030187,0x7F030188,0x7F030189,0x7F03018A,0x7F0301AA,0x7F0301AD,0x7F0302B1,0x7F0302B2,0x7F0302B3,0x7F0302B4,0x7F0302B5,0x7F0302B6,0x7F0302B7,0x7F0302B8,0x7F0302BB,0x7F0302CD }
 			public static int[] MapAttrs = new int[] {
 					2130903094,
 					2130903162,
@@ -25375,7 +25378,6 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903434,
 					2130903466,
 					2130903469,
-					2130903728,
 					2130903729,
 					2130903730,
 					2130903731,
@@ -25383,8 +25385,9 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903733,
 					2130903734,
 					2130903735,
-					2130903738,
-					2130903756};
+					2130903736,
+					2130903739,
+					2130903757};
 			
 			// aapt resource value: 0
 			public const int MapAttrs_ambientEnabled = 0;
@@ -25609,7 +25612,7 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 20
 			public const int MaterialButton_strokeWidth = 20;
 			
-			// aapt resource value: { 0x101020D,0x7F0300EC,0x7F0300ED,0x7F0300EE,0x7F0300EF,0x7F030202,0x7F0302C9,0x7F0302CA,0x7F0302CB }
+			// aapt resource value: { 0x101020D,0x7F0300EC,0x7F0300ED,0x7F0300EE,0x7F0300EF,0x7F030202,0x7F0302CA,0x7F0302CB,0x7F0302CC }
 			public static int[] MaterialCalendar = new int[] {
 					16843277,
 					2130903276,
@@ -25617,9 +25620,9 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903278,
 					2130903279,
 					2130903554,
-					2130903753,
 					2130903754,
-					2130903755};
+					2130903755,
+					2130903756};
 			
 			// aapt resource value: { 0x10101B7,0x10101B8,0x10101B9,0x10101BA,0x7F03016B,0x7F030174,0x7F030175,0x7F03017C,0x7F03017D,0x7F030181 }
 			public static int[] MaterialCalendarItem = new int[] {
@@ -25734,10 +25737,10 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 9
 			public const int MaterialCardView_strokeWidth = 9;
 			
-			// aapt resource value: { 0x7F030078,0x7F0302B9 }
+			// aapt resource value: { 0x7F030078,0x7F0302BA }
 			public static int[] MaterialCheckBox = new int[] {
 					2130903160,
-					2130903737};
+					2130903738};
 			
 			// aapt resource value: 0
 			public const int MaterialCheckBox_buttonTint = 0;
@@ -25745,10 +25748,10 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 1
 			public const int MaterialCheckBox_useMaterialThemeColors = 1;
 			
-			// aapt resource value: { 0x7F030078,0x7F0302B9 }
+			// aapt resource value: { 0x7F030078,0x7F0302BA }
 			public static int[] MaterialRadioButton = new int[] {
 					2130903160,
-					2130903737};
+					2130903738};
 			
 			// aapt resource value: 0
 			public const int MaterialRadioButton_buttonTint = 0;
@@ -25843,7 +25846,7 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 2
 			public const int MenuGroup_android_visible = 2;
 			
-			// aapt resource value: { 0x1010002,0x101000E,0x10100D0,0x1010106,0x1010194,0x10101DE,0x10101DF,0x10101E1,0x10101E2,0x10101E3,0x10101E4,0x10101E5,0x101026F,0x7F03000D,0x7F03001F,0x7F030021,0x7F030035,0x7F0300CB,0x7F03015F,0x7F030160,0x7F0301E0,0x7F03021A,0x7F0302A6 }
+			// aapt resource value: { 0x1010002,0x101000E,0x10100D0,0x1010106,0x1010194,0x10101DE,0x10101DF,0x10101E1,0x10101E2,0x10101E3,0x10101E4,0x10101E5,0x101026F,0x7F03000D,0x7F03001F,0x7F030021,0x7F030035,0x7F0300CB,0x7F03015F,0x7F030160,0x7F0301E0,0x7F03021A,0x7F0302A7 }
 			public static int[] MenuItem = new int[] {
 					16842754,
 					16842766,
@@ -25867,7 +25870,7 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903392,
 					2130903520,
 					2130903578,
-					2130903718};
+					2130903719};
 			
 			// aapt resource value: 13
 			public const int MenuItem_actionLayout = 13;
@@ -26137,9 +26140,9 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 11
 			public const int ProgressWheel_ahTextSize = 11;
 			
-			// aapt resource value: { 0x7F0302BB }
+			// aapt resource value: { 0x7F0302BC }
 			public static int[] RangeSlider = new int[] {
-					2130903739};
+					2130903740};
 			
 			// aapt resource value: 0
 			public const int RangeSlider_values = 0;
@@ -26227,7 +26230,7 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 0
 			public const int ScrollViewRendererTheme_scrollViewStyle = 0;
 			
-			// aapt resource value: { 0x10100DA,0x101011F,0x1010220,0x1010264,0x7F0300A6,0x7F0300CA,0x7F0300F0,0x7F030145,0x7F030161,0x7F03018B,0x7F0301FF,0x7F030200,0x7F03020E,0x7F03020F,0x7F03023F,0x7F030247,0x7F0302BE }
+			// aapt resource value: { 0x10100DA,0x101011F,0x1010220,0x1010264,0x7F0300A6,0x7F0300CA,0x7F0300F0,0x7F030145,0x7F030161,0x7F03018B,0x7F0301FF,0x7F030200,0x7F03020E,0x7F03020F,0x7F03023F,0x7F030247,0x7F0302BF }
 			public static int[] SearchView = new int[] {
 					16842970,
 					16843039,
@@ -26245,7 +26248,7 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903567,
 					2130903615,
 					2130903623,
-					2130903742};
+					2130903743};
 			
 			// aapt resource value: 0
 			public const int SearchView_android_focusable = 0;
@@ -26375,7 +26378,7 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 2
 			public const int SignInButton_scopeUris = 2;
 			
-			// aapt resource value: { 0x101000E,0x1010024,0x1010146,0x10102DE,0x10102DF,0x7F030146,0x7F030147,0x7F030183,0x7F030184,0x7F030287,0x7F030288,0x7F030289,0x7F03028D,0x7F03028E,0x7F03028F,0x7F0302A8,0x7F0302A9,0x7F0302AA,0x7F0302AB }
+			// aapt resource value: { 0x101000E,0x1010024,0x1010146,0x10102DE,0x10102DF,0x7F030146,0x7F030147,0x7F030183,0x7F030184,0x7F030288,0x7F030289,0x7F03028A,0x7F03028E,0x7F03028F,0x7F030290,0x7F0302A9,0x7F0302AA,0x7F0302AB,0x7F0302AC }
 			public static int[] Slider = new int[] {
 					16842766,
 					16842788,
@@ -26386,16 +26389,16 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903367,
 					2130903427,
 					2130903428,
-					2130903687,
 					2130903688,
 					2130903689,
-					2130903693,
+					2130903690,
 					2130903694,
 					2130903695,
-					2130903720,
+					2130903696,
 					2130903721,
 					2130903722,
-					2130903723};
+					2130903723,
+					2130903724};
 			
 			// aapt resource value: 0
 			public const int Slider_android_enabled = 0;
@@ -26561,22 +26564,29 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 1
 			public const int StateListDrawable_android_visible = 1;
 			
-			// aapt resource value: { 0x1010124,0x1010125,0x1010142,0x7F03021D,0x7F03022B,0x7F030248,0x7F030249,0x7F03024B,0x7F03028A,0x7F03028B,0x7F03028C,0x7F0302A7,0x7F0302AC,0x7F0302AD }
+			// aapt resource value: { 0x7F030248 }
+			public static int[] SwipeRefreshLayout = new int[] {
+					2130903624};
+			
+			// aapt resource value: 0
+			public const int SwipeRefreshLayout_swipeRefreshLayoutProgressSpinnerBackgroundColor = 0;
+			
+			// aapt resource value: { 0x1010124,0x1010125,0x1010142,0x7F03021D,0x7F03022B,0x7F030249,0x7F03024A,0x7F03024C,0x7F03028B,0x7F03028C,0x7F03028D,0x7F0302A8,0x7F0302AD,0x7F0302AE }
 			public static int[] SwitchCompat = new int[] {
 					16843044,
 					16843045,
 					16843074,
 					2130903581,
 					2130903595,
-					2130903624,
 					2130903625,
-					2130903627,
-					2130903690,
+					2130903626,
+					2130903628,
 					2130903691,
 					2130903692,
-					2130903719,
-					2130903724,
-					2130903725};
+					2130903693,
+					2130903720,
+					2130903725,
+					2130903726};
 			
 			// aapt resource value: 1
 			public const int SwitchCompat_android_textOff = 1;
@@ -26620,9 +26630,9 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 13
 			public const int SwitchCompat_trackTintMode = 13;
 			
-			// aapt resource value: { 0x7F0302B9 }
+			// aapt resource value: { 0x7F0302BA }
 			public static int[] SwitchMaterial = new int[] {
-					2130903737};
+					2130903738};
 			
 			// aapt resource value: 0
 			public const int SwitchMaterial_useMaterialThemeColors = 0;
@@ -26642,9 +26652,8 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 2
 			public const int TabItem_android_text = 2;
 			
-			// aapt resource value: { 0x7F03024C,0x7F03024D,0x7F03024E,0x7F03024F,0x7F030250,0x7F030251,0x7F030252,0x7F030253,0x7F030254,0x7F030255,0x7F030256,0x7F030257,0x7F030258,0x7F030259,0x7F03025A,0x7F03025B,0x7F03025C,0x7F03025D,0x7F03025E,0x7F03025F,0x7F030260,0x7F030261,0x7F030263,0x7F030264,0x7F030265 }
+			// aapt resource value: { 0x7F03024D,0x7F03024E,0x7F03024F,0x7F030250,0x7F030251,0x7F030252,0x7F030253,0x7F030254,0x7F030255,0x7F030256,0x7F030257,0x7F030258,0x7F030259,0x7F03025A,0x7F03025B,0x7F03025C,0x7F03025D,0x7F03025E,0x7F03025F,0x7F030260,0x7F030261,0x7F030262,0x7F030264,0x7F030265,0x7F030266 }
 			public static int[] TabLayout = new int[] {
-					2130903628,
 					2130903629,
 					2130903630,
 					2130903631,
@@ -26666,9 +26675,10 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903647,
 					2130903648,
 					2130903649,
-					2130903651,
+					2130903650,
 					2130903652,
-					2130903653};
+					2130903653,
+					2130903654};
 			
 			// aapt resource value: 0
 			public const int TabLayout_tabBackground = 0;
@@ -26745,7 +26755,7 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 24
 			public const int TabLayout_tabUnboundedRipple = 24;
 			
-			// aapt resource value: { 0x1010095,0x1010096,0x1010097,0x1010098,0x101009A,0x101009B,0x1010161,0x1010162,0x1010163,0x1010164,0x10103AC,0x1010585,0x7F030138,0x7F030140,0x7F030266,0x7F030282 }
+			// aapt resource value: { 0x1010095,0x1010096,0x1010097,0x1010098,0x101009A,0x101009B,0x1010161,0x1010162,0x1010163,0x1010164,0x10103AC,0x1010585,0x7F030138,0x7F030140,0x7F030267,0x7F030283 }
 			public static int[] TextAppearance = new int[] {
 					16842901,
 					16842902,
@@ -26761,8 +26771,8 @@ namespace InternetBanking.Android.SlieveGullion
 					16844165,
 					2130903352,
 					2130903360,
-					2130903654,
-					2130903682};
+					2130903655,
+					2130903683};
 			
 			// aapt resource value: 10
 			public const int TextAppearance_android_fontFamily = 10;
@@ -26812,9 +26822,9 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 15
 			public const int TextAppearance_textLocale = 15;
 			
-			// aapt resource value: { 0x7F030280 }
+			// aapt resource value: { 0x7F030281 }
 			public static int[] TextInputEditText = new int[] {
-					2130903680};
+					2130903681};
 			
 			// aapt resource value: 0
 			public const int TextInputEditText_textInputLayoutFocusedRectEnabled = 0;
@@ -27085,7 +27095,7 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 2
 			public const int ThemeEnforcement_enforceTextAppearance = 2;
 			
-			// aapt resource value: { 0x10100AF,0x1010140,0x7F030072,0x7F0300AE,0x7F0300AF,0x7F0300CC,0x7F0300CD,0x7F0300CE,0x7F0300CF,0x7F0300D0,0x7F0300D1,0x7F0301AB,0x7F0301AC,0x7F0301C3,0x7F0301D8,0x7F0301DB,0x7F0301DC,0x7F0301F6,0x7F030240,0x7F030241,0x7F030242,0x7F030295,0x7F030297,0x7F030298,0x7F030299,0x7F03029A,0x7F03029B,0x7F03029C,0x7F03029D,0x7F03029E }
+			// aapt resource value: { 0x10100AF,0x1010140,0x7F030072,0x7F0300AE,0x7F0300AF,0x7F0300CC,0x7F0300CD,0x7F0300CE,0x7F0300CF,0x7F0300D0,0x7F0300D1,0x7F0301AB,0x7F0301AC,0x7F0301C3,0x7F0301D8,0x7F0301DB,0x7F0301DC,0x7F0301F6,0x7F030240,0x7F030241,0x7F030242,0x7F030296,0x7F030298,0x7F030299,0x7F03029A,0x7F03029B,0x7F03029C,0x7F03029D,0x7F03029E,0x7F03029F }
 			public static int[] Toolbar = new int[] {
 					16842927,
 					16843072,
@@ -27108,15 +27118,15 @@ namespace InternetBanking.Android.SlieveGullion
 					2130903616,
 					2130903617,
 					2130903618,
-					2130903701,
-					2130903703,
+					2130903702,
 					2130903704,
 					2130903705,
 					2130903706,
 					2130903707,
 					2130903708,
 					2130903709,
-					2130903710};
+					2130903710,
+					2130903711};
 			
 			// aapt resource value: 0
 			public const int Toolbar_android_gravity = 0;
@@ -27239,13 +27249,13 @@ namespace InternetBanking.Android.SlieveGullion
 			// aapt resource value: 6
 			public const int Tooltip_backgroundTint = 6;
 			
-			// aapt resource value: { 0x1010000,0x10100DA,0x7F0301E4,0x7F0301E7,0x7F030284 }
+			// aapt resource value: { 0x1010000,0x10100DA,0x7F0301E4,0x7F0301E7,0x7F030285 }
 			public static int[] View = new int[] {
 					16842752,
 					16842970,
 					2130903524,
 					2130903527,
-					2130903684};
+					2130903685};
 			
 			// aapt resource value: { 0x10100D4,0x7F03004A,0x7F03004B }
 			public static int[] ViewBackgroundHelper = new int[] {
